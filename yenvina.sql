@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 08, 2023 lúc 11:44 AM
+-- Thời gian đã tạo: Th5 09, 2023 lúc 08:15 AM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.1.12
 
@@ -133,11 +133,43 @@ INSERT INTO `cart` (`id_cart`, `product_id`, `user_id`, `quantity`, `code`, `cre
 (45, 22, '080520230311', 1, 'keri110312', '2023-05-08', '2023-05-08'),
 (47, 4, '080520230311', 1, 'keri135545', '2023-05-08', '2023-05-08'),
 (48, 5, '080520230311', 1, 'keri135602', '2023-05-08', '0000-00-00'),
-(49, 21, '080520231023', 3, 'keri153219', '2023-05-08', '2023-05-08'),
-(50, 23, '080520231023', 1, 'keri153221', '2023-05-08', '0000-00-00'),
+(49, 21, '080520231023', 3, 'keri153219', '2023-05-08', '2023-05-09'),
+(50, 23, '080520231023', 1, 'keri153221', '2023-05-08', '2023-05-09'),
 (51, 21, '080520231116', 3, 'keri161648', '2023-05-08', '2023-05-08'),
 (52, 23, '080520231124', 3, 'keri162624', '2023-05-08', '2023-05-08'),
-(53, 21, '080520231127', 1, 'keri162743', '2023-05-08', '0000-00-00');
+(53, 21, '080520231127', 1, 'keri162743', '2023-05-08', '0000-00-00'),
+(54, 22, '090520230310', 1, 'keri081114', '2023-05-09', '0000-00-00'),
+(55, 21, '090520230312', 1, 'keri082101', '2023-05-09', '0000-00-00'),
+(56, 21, '090520230339', 2, 'keri083919', '2023-05-09', '2023-05-09');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `comment`
+--
+
+CREATE TABLE `comment` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `user_id` text NOT NULL,
+  `content` text NOT NULL,
+  `rating` int(11) NOT NULL,
+  `create_at` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `comment`
+--
+
+INSERT INTO `comment` (`id`, `product_id`, `user_id`, `content`, `rating`, `create_at`) VALUES
+(8, 21, '080520231023', 'bad', 1, '2023-05-09'),
+(9, 21, '080520231023', 'Very good', 5, '2023-05-09'),
+(10, 21, '080520231023', 'ok', 4, '2023-05-09'),
+(11, 21, '080520231023', 'oke', 5, '2023-05-09'),
+(12, 21, '080520231023', 'oke la', 5, '2023-05-09'),
+(13, 21, '080520231023', 'tạm ổn', 2, '2023-05-09'),
+(14, 21, '080520231023', 'đsad', 3, '2023-05-09'),
+(15, 21, '080520231023', 'oh yeah', 5, '2023-05-09');
 
 -- --------------------------------------------------------
 
@@ -185,10 +217,11 @@ CREATE TABLE `info_user` (
 
 INSERT INTO `info_user` (`info_id`, `user_id`, `name_user`, `phone`, `address`, `create_at`, `update_at`) VALUES
 (11, '080520230311', 'Le LAM', '0359893447', 'Ninh Thuan province', '2023-05-08', '0000-00-00'),
-(12, '080520231023', 'LE VAN LAM', '0359893447', 'Ninh Thuan province', '2023-05-08', '0000-00-00'),
-(13, '080520231116', 'tow', '0359893447', 'Ninh Thuan province', '2023-05-08', '0000-00-00'),
+(12, '080520231023', 'Lâm Lê Văn', '0359893447', 'Ninh Thuan province', '2023-05-08', '2023-05-09'),
+(13, '080520231116', 'test tow', '0359893447', 'Ninh Thuan province', '2023-05-08', '2023-05-09'),
 (14, '080520231124', 'Le LAM', '0359893447', 'Ninh Thuan province', '2023-05-08', '0000-00-00'),
-(15, '080520231127', 'Le LAM', '3213312321', 'thôn Văn Hòa, xã Vĩnh Phúc, tỉnh Lào Cai', '2023-05-08', '2023-05-08');
+(15, '080520231127', 'Le LAM', '3213312321', 'thôn Văn Hòa, xã Vĩnh Phúc, tỉnh Lào Cai', '2023-05-08', '2023-05-08'),
+(16, '090520230310', 'new bi', '0359893447', 'Ninh Thuan province', '2023-05-09', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -214,7 +247,8 @@ INSERT INTO `payment` (`id`, `user_id`, `transport`, `type_payment`, `total_pric
 (2, '080520230311', 'Phí ship dựa trên kilomet thực nhận', 'Thanh toán khi nhận hàng', 10243000, '2023-05-08'),
 (3, '080520230311', 'Phí ship dựa trên kilomet thực nhận', 'Thanh toán khi nhận hàng', 14327300, '2023-05-08'),
 (4, '080520230311', 'Phí ship dựa trên quãng đường đi được', 'Thanh toán khi nhận hàng', 8136000, '2023-05-08'),
-(5, '080520230933', 'Phí ship dựa trên kilomet thực nhận', 'Thanh toán khi nhận hàng', 0, '2023-05-08');
+(6, '080520231116', 'Phí ship dựa trên kilomet thực nhận', 'Thanh toán khi nhận hàng', 12252900, '2023-05-09'),
+(7, '080520231023', 'Phí ship dựa trên quãng đường đi được', 'Thanh toán khi nhận hàng', 14382900, '2023-05-09');
 
 -- --------------------------------------------------------
 
@@ -231,9 +265,9 @@ CREATE TABLE `products` (
   `thumbnail` text NOT NULL,
   `weight` text NOT NULL DEFAULT '50gram',
   `type_id` int(11) NOT NULL,
-  `rating` int(11) NOT NULL,
+  `rating` int(11) NOT NULL DEFAULT 5,
   `status` tinyint(1) NOT NULL DEFAULT 1,
-  `create_at` date DEFAULT NULL,
+  `create_at` date DEFAULT current_timestamp(),
   `update_at` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -257,9 +291,9 @@ INSERT INTO `products` (`id`, `product_name`, `prices`, `quantity`, `sale`, `thu
 (14, 'Yến chưng chất lượng cao', 3100000, 297, 5, 'to_yen_1.png', '50gram', 9, 4, 1, NULL, NULL),
 (15, 'Tổ yến nơi thiên đường', 5150000, 999, 9, 'to_yen_2.png', '50gram', 9, 5, 1, NULL, NULL),
 (16, 'Tổ yến “thượng hạng”', 290000, 115, 0, 'to_yen_1.png', '50gram', 1, 5, 1, NULL, NULL),
-(20, 'Tổ yến vip loại 2', 2100000, 31, 3, 'Pancake hạnh nhân đậu đỏ.jpg', '50gram', 2, 0, 1, NULL, NULL),
-(21, 'Yen sao chung cat', 5170000, 412, 21, 'to_yen_1.png', '50gram', 3, 0, 1, NULL, NULL),
-(22, 'Tổ yến vip loại 3', 2140000, 27, 5, 'Pancake hạnh nhân đậu đỏ.jpg', '50gram', 1, 0, 1, NULL, NULL),
+(20, 'Tổ yến vip loại 2', 2100000, 31, 3, 'Pancake hạnh nhân đậu đỏ.jpg', '50gram', 2, 5, 1, NULL, NULL),
+(21, 'Yen sao chung cat', 5170000, 412, 21, 'to_yen_1.png', '50gram', 3, 5, 1, NULL, NULL),
+(22, 'Tổ yến vip loại 3', 2140000, 27, 5, 'Pancake hạnh nhân đậu đỏ.jpg', '50gram', 1, 5, 1, NULL, NULL),
 (23, 'Tổ yến vip loại 4', 2130000, 213, 0, '3bbaeb04-eba4-4657-9388-b327bd42008e.png', '50gram', 3, 0, 1, NULL, NULL),
 (24, 'Yen sao chung cat', 310000, 6, 1, 'img_item_hcoll_products_5_small (5).png', '50gram', 3, 0, 1, NULL, NULL);
 
@@ -358,7 +392,6 @@ CREATE TABLE `user_web` (
 --
 
 INSERT INTO `user_web` (`id`, `user_id`, `user_name`, `email`, `password`, `member`, `create_at`, `update_at`) VALUES
-(15, '', 'Lâm Lê Văn', 'levanlam100800@gmail.com', '1234124124', 'Khách hàng thường', '2023-05-08', '0000-00-00'),
 (16, '080520231023', 'Lâm Lê Văn', 'levanlam3447@gmail.com', '123456', 'Khách hàng thường', '2023-05-08', '0000-00-00'),
 (17, '080520231116', 'test tow', 'admin@gmail.com', '12345', 'Khách hàng thường', '2023-05-08', '0000-00-00'),
 (27, '080520231124', '123123 213231', 'Admin3@gmail.com', '123445', 'Khách hàng thường', '2023-05-08', '0000-00-00'),
@@ -394,6 +427,12 @@ ALTER TABLE `banner`
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id_cart`),
   ADD KEY `fk_product` (`product_id`);
+
+--
+-- Chỉ mục cho bảng `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `company`
@@ -471,7 +510,13 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- AUTO_INCREMENT cho bảng `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `company`
@@ -483,13 +528,13 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT cho bảng `info_user`
 --
 ALTER TABLE `info_user`
-  MODIFY `info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
