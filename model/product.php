@@ -122,4 +122,12 @@ class Product extends Database{
         $sql = parent::$connection->prepare("SELECT * FROM products ORDER BY `prices` DESC");
         return parent::select($sql);
     }
+    /**
+     * Update rating when add comment for user
+     */
+    function updateRating($product_id, $rating){
+        $sql = parent::$connection->prepare("UPDATE `products` SET `rating` = ?  WHERE `id` = ?");
+        $sql->bind_param('ii', $rating, $product_id);
+        return $sql->execute();
+    }
 }

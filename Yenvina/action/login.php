@@ -14,5 +14,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
     $_SESSION['user']['name'] =  $login[0]['user_name'];
     $_SESSION['user']['email'] =  $login[0]['email'];
     $_SESSION['user']['temp'] =  $login[0]['user_id'];
+
+    unset($_SESSION['login']);//Remove session in Cart page
     header('location: ../index.php');
 }

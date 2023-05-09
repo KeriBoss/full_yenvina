@@ -87,7 +87,7 @@ $product = new Product();
 
         <!-- Header Start -->
         <header>
-            <div class="container wow fadeIn" data-wow-delay="0.2s">
+            <div id="main-header" class="container wow fadeIn" data-wow-delay="0.2s">
                 <div class="header-top row gx-2 d-flex justify-content-center align-items-center py-1">
                     <div class="col-lg-2 col-md-3 d-flex align-items-center">
                         <div class="menu-bar"><i class="bx bx-menu"></i></div>

@@ -71,7 +71,7 @@ function btnHighest(product_id, quantity) {
         showContentCart(reponse);
     })
 }
-
+//Remove item product in cart
 function removeProduct(product_id){
     $.ajax({
         url: 'remove_product_cart.php',
@@ -85,8 +85,7 @@ function removeProduct(product_id){
         showContentCart(reponse);
     })
 }
-
-
+//Show conent on modal cart
 function showContentCart(reponse) {
     const modalCart = document.getElementById('popupAddCart');
     const modalHeader = modalCart.querySelector('.modal-header');
@@ -153,4 +152,65 @@ function showContentCart(reponse) {
     }
 }
 
+//Add comment of user
+const btnComment = document.getElementById('comment_user');
+const btnRating = document.querySelectorAll('.rating input[type=radio]');
+const bodyComment = document.getElementById('comment_body');
+const contentComment = document.querySelector('.comment_content');
 
+const listComment = document.getElementById('list_comment');
+
+$(document).ready(function () {
+    btnComment.onclick = (e)=>{
+        let product_id = bodyComment.dataset.product;
+        let user_id = bodyComment.dataset.user;
+        let content = contentComment.value;
+
+        let rating = 0;
+        btnRating.forEach(item => {
+            if(item.checked == true){
+                rating = item.value;
+            }
+        });
+        $.ajax({
+            url: 'add_comment.php',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                product_id: product_id,
+                user_id: user_id,
+                content: content,
+                rating: rating,
+            }
+        }).done(function (reponse) {
+            listComment.innerHTML = ``;
+            reponse.forEach((item,index )=> {
+                listComment.innerHTML += `
+                <div class="card p-3 mt-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="user d-flex flex-row align-items-center">
+                            <div class="face_user mr-2"><i class='bx bxs-user-circle'></i></div>
+                            <span><small class="font-weight-bold text-primary">${item.user_name}</small></span>
+                        </div>
+                        <small>${item.create_at}</small>
+                    </div>
+                    <div class="action d-flex justify-content-between mt-2 align-items-center">
+                        <div class="reply px-4">
+                            ${item.content}
+                        </div>
+                        <div id="star_icon${index}" class="icons align-items-center">
+                        </div>
+                    </div>
+                </div>
+                `;
+                for (let i = 1; i <= item.rating; i++) {
+                    document.getElementById(`star_icon${index}`).innerHTML += "<i class='fa fa-star text-warning'></i>"
+                }
+            });
+            contentComment.value = '';
+            btnRating.forEach(item => {
+                item.checked = false;
+            });
+        });
+    }
+})

@@ -182,11 +182,11 @@ $getSocialHomePage = $social->getSocialHomePage();
             </div>
         </div>
         <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
         <a target="_blank" href="https://zalo.me/035.989.3447" class="btn btn-lg-square zalo_me">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/2048px-Icon_of_Zalo.svg.png" alt="Zalo" class="img-fluid">
         </a>
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
         <!-- <div class="zalo-chat-widget" data-oaid="1171762892749775936" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="1" data-width="300" data-height="500"></div>
 
         <script src="https://sp.zalo.me/plugins/sdk.js"></script> -->

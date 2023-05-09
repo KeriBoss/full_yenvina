@@ -213,6 +213,7 @@ $urlImg = 'http://localhost/Yenvina';
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?= $url ?>/ui/group_user/user/user_list.php">Danh sách người dùng</a>
                         <a class="collapse-item" href="<?= $url ?>/ui/cart/payment_list.php">Danh sách thanh toán</a>
+                        <a class="collapse-item" href="<?= $url ?>/ui/cart/comment_list.php">Danh sách bình luận</a>
                     </div>
                 </div>
             </li>

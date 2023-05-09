@@ -77,4 +77,12 @@ class UserWeb extends Database{
         $sql = parent::$connection->prepare("SELECT `payment`.`user_id` as id, `payment`.`transport` as transport, `payment`.`type_payment` as type_payment, `payment`.`total_price` as price, `payment`.`create_at` as date, `info_user`.`user_id` as user_id, `info_user`.`name_user` as name, `info_user`.`phone` as phone FROM payment, info_user WHERE payment.user_id = info_user.user_id");
         return parent::select($sql);
     }
+    /**
+     * Get account user when user_id equal id
+     */
+    function getAccountById($user_id){
+        $sql = parent::$connection->prepare("SELECT * FROM user_web WHERE user_id = ?");
+        $sql->bind_param('s', $user_id);
+        return parent::select($sql);
+    }
 }

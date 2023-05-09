@@ -1,5 +1,7 @@
 <?php
 include("./header.php");
+require_once $refRoot . "/model/comment.php";
+
 
 if (isset($_GET['id'])) {
     $product_id = $_GET['id'];
@@ -13,7 +15,165 @@ $TIME_DELAY = 10000; //Countdown to the end of the discount
 
 $getLatestProduct = $product->getLatestProduct($quantityProductShow);
 
+$comment = new Comment();
+$getCommentByProduct = $comment->getCommentByProduct($product_id);
+
 ?>
+<style>
+    .card {
+        padding: 20px;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border-radius: 6px;
+        -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1)
+    }
+
+    .comment-box {
+
+        padding: 5px;
+    }
+
+
+
+    .comment-area textarea {
+        resize: none;
+        border: 1px solid #ad9f9f;
+    }
+
+
+    .form-control:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #ffffff;
+        outline: 0;
+        box-shadow: 0 0 0 1px #c4903b !important;
+    }
+
+    .send {
+        color: #fff;
+        background-color: #c4903b;
+        border-color: #c4903b;
+    }
+
+    .send:hover {
+        color: #fff;
+        background-color: #c4903b;
+        border-color: #c4903b;
+    }
+
+
+    .rating {
+        display: flex;
+        margin-top: -10px;
+        flex-direction: row-reverse;
+        margin-left: -4px;
+        float: left;
+    }
+
+    .rating>input {
+        display: none;
+    }
+
+    .rating>label {
+        position: relative;
+        width: 19px;
+        font-size: 25px;
+        color: #c4903b;
+        cursor: pointer;
+    }
+
+    .rating>label::before {
+        content: "\2605";
+        position: absolute;
+        opacity: 0
+    }
+
+    .rating>label:hover:before,
+    .rating>label:hover~label:before {
+        opacity: 1 !important
+    }
+
+    .rating>input:checked~label:before {
+        opacity: 1
+    }
+
+    .rating:hover>input:checked~label:before {
+        opacity: 0.4
+    }
+
+
+    .dots {
+
+        height: 4px;
+        width: 4px;
+        margin-bottom: 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .badge {
+
+        padding: 7px;
+        padding-right: 9px;
+        padding-left: 16px;
+        box-shadow: 5px 6px 6px 2px #e9ecef;
+    }
+
+    .user-img {
+        margin-top: 4px;
+    }
+
+    .user .face_user{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        font-size: 2rem;
+    }
+
+    .check-icon {
+
+        font-size: 17px;
+        color: #c3bfbf;
+        top: 1px;
+        position: relative;
+        margin-left: 3px;
+    }
+
+    .form-check-input {
+        margin-top: 6px;
+        margin-left: -24px !important;
+        cursor: pointer;
+    }
+
+
+    .form-check-input:focus {
+        box-shadow: none;
+    }
+
+    .reply {
+        max-width: 75%;
+        margin-left: 12px;
+        font-size: .9rem;
+    }
+
+    .reply small {
+
+        color: #b7b4b4;
+
+    }
+
+
+    .reply small:hover {
+
+        color: green;
+        cursor: pointer;
+
+    }
+</style>
 
 <!-- Breadcrumb start-->
 <section class="breadcrumb container">
@@ -108,14 +268,14 @@ $getLatestProduct = $product->getLatestProduct($quantityProductShow);
                                         <label for="choose4">mix nhieu loại gia vị</label>
                                     </div> -->
                                     <div class="range">
-                                        <input onclick="btnLowest(<?= $product_id, $getProductById[0]['quantity']?>)" type="button" class="lowest_quan" value="-" />
+                                        <input onclick="btnLowest(<?= $product_id, $getProductById[0]['quantity'] ?>)" type="button" class="lowest_quan" value="-" />
                                         <input id="cart_quantity" type="text" class="main_quan" name="quantity" value="1" />
-                                        <input onclick="btnHighest(<?= $product_id, $getProductById[0]['quantity']?>)" type="button" class="highest_quan" value="+" />
+                                        <input onclick="btnHighest(<?= $product_id, $getProductById[0]['quantity'] ?>)" type="button" class="highest_quan" value="+" />
                                     </div>
                                     <div class="group-form submit">
                                         <button class="add-cart" type="button">
-                                            <a data-toggle="modal" data-target="#popupAddCart" data-parent="<?=$product_id?>" data-user="<?=$_SESSION['user']['temp']?>"><span>Add to
-                                                            cart</span></a>
+                                            <a data-toggle="modal" data-target="#popupAddCart" data-parent="<?= $product_id ?>" data-user="<?= $_SESSION['user']['temp'] ?>"><span>Add to
+                                                    cart</span></a>
                                         </button>
                                         <button><a class="cl-white" href="./payment.php">Mua ngay</a></button>
                                     </div>
@@ -230,91 +390,74 @@ $getLatestProduct = $product->getLatestProduct($quantityProductShow);
                             </div>
 
                             <div class="tab" id="tab3">
-                                <h1>Content tab 3</h1>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog model-wh modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title text-center" id="exampleModalLongTitle">
-                                                    Gio hang hien co ( <span>1</span> )san pham
-                                                </h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">#</th>
-                                                            <th scope="col">Thumbnail</th>
-                                                            <th scope="col">Product</th>
-                                                            <th scope="col">Price</th>
-                                                            <th scope="col">Quantity</th>
-                                                            <th scope="col">Money</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>
-                                                                <img width="70" height="70" src="./img/carousel-yenvina-1.png" alt="">
-                                                            </td>
-                                                            <td>
-                                                                <p><b class="bold">To yen tinh che Vip loai
-                                                                        1</b></p>
-                                                                <p>Phien ban: 50gram</p>
-                                                                <p>Thuong hieu yen thuong dinh</p>
-                                                            </td>
-                                                            <td>
-                                                                <p><b class="bold">2,999,000d</b></p>
-                                                                <p><span class="price-old">3.190.000d</span></p>
-                                                                <p><span class="sale">-9%</span></p>
-                                                            </td>
-                                                            <td>
-                                                                <div class="range">
-                                                                    <input type="button" class="lowest" value="-" />
-                                                                    <input type="text" name="quantity" value="1" />
-                                                                    <input type="button" class="highest" value="+" />
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="card">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div id="comment_body" data-product="<?=$product_id?>" 
+                                                    data-user="<?=$_SESSION['user']['temp']?>"
+                                                    class="comment-box ml-2">
+                                                        <h4>Thêm bình luận mới</h4>
+                                                        <p style="color: red;font-size: .9rem;"></p>
+                                                        <?php 
+                                                            if(isset($_SESSION['login'])){
+                                                                $session = $_SESSION['login'];
+                                                                echo "<p style='color: red;font-size: .9rem;'>$session</p>";
+                                                            }
+                                                        ?>
+                                                        <div class="rating">
+                                                            <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                                                            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                                                            <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                                                            <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                                                            <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                                                        </div>
+                                                        <div class="comment-area">
+                                                            <textarea class="comment_content form-control" placeholder="Bạn có suy nghĩ gì về sản phẩm?" rows="5"></textarea>
+                                                        </div>
+                                                        <div class="comment-btns mt-2">
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <div class="pull-left">
+                                                                        <button id="comment_user" class="btn btn-success btn-sm">Gửi</button>
+                                                                    </div>
                                                                 </div>
-                                                            </td>
-                                                            <td><b class="bold">2,999,000d</b></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>
-                                                                <img width="70" height="70" src="./img/carousel-yenvina-1.png" alt="">
-                                                            </td>
-                                                            <td>
-                                                                <p><b>To yen tinh che Vip loai 1</b></p>
-                                                                <p>Phien ban: 50gram</p>
-                                                                <p>Thuong hieu yen thuong dinh</p>
-                                                            </td>
-                                                            <td>
-                                                                <p><b>2,999,000d</b></p>
-                                                                <p><span class="price-old">3.190.000d</span></p>
-                                                                <p><span class="sale">-9%</span></p>
-                                                            </td>
-                                                            <td>
-                                                                <div class="range">
-                                                                    <input type="button" class="lowest" value="-" />
-                                                                    <input type="text" name="quantity" value="1" />
-                                                                    <input type="button" class="highest" value="+" />
-                                                                </div>
-                                                            </td>
-                                                            <td><b>2,999,000d</b></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="modal-footer">
-                                                <div class="price-final float-left"><span>39999999d</span></div>
-                                                <div class="group">
-                                                    <a href="./cart.html" class="btn-tablink">Giỏ hàng</a>
-                                                    <a href="./payment.html" class="btn-tablink active">Thanh
-                                                        toán</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-md-6 col-12">
+                                        <div class="row d-flex justify-content-center">
+                                            <div class="col-12">
+                                                <div class="headings d-flex justify-content-between align-items-center mb-3">
+                                                    <h5>Tất cả bình luận</h5>
+                                                </div>
+                                                <div id="list_comment">
+                                                    <?php foreach($getCommentByProduct as $item){ ?>
+                                                    <div class="card p-3 mt-2">
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <div class="user d-flex flex-row align-items-center">
+                                                                <div class="face_user mr-2"><i class='bx bxs-user-circle'></i></div>
+                                                                <span><small class="font-weight-bold text-primary">Tester1</small></span>
+                                                            </div>
+                                                            <small><?=$item['create_at']?></small>
+                                                        </div>
+                                                        <div class="action d-flex justify-content-between mt-2 align-items-center">
+                                                            <div class="reply px-4">
+                                                                <?=$item['content']?>
+                                                            </div>
+                                                            <div id="star_icon" class="icons align-items-center">
+                                                                <?php for($i = 0; $i < $item['rating']; $i++ ){?>
+                                                                <i class="fa fa-star text-warning"></i>
+                                                                <?php } ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                         </div>
