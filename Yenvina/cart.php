@@ -110,7 +110,7 @@ foreach($getCartByUserId as $item){
                                     <div class="costs my-3"><span>Tổng tiền: </span><b><?=number_format($totalPrice)?></b>VND</div>
                                     <p><span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium dignissimos asperiores mollitia animi illum. Nobis dolore, architecto ad odit consectetur, odio magni reiciendis repudiandae officiis error tenetur, tempora debitis illo.</span></p>
                                     <div class="mb-3"><a class="btn-payment" href="./payment.php">Thanh toán</a></div>
-                                    <a class="back-home" href="./index.html"><i class='bx bx-arrow-back'></i> Tiếp tục mua hàng</a>
+                                    <a class="back-home" href="./index.php"><i class='bx bx-arrow-back'></i> Tiếp tục mua hàng</a>
                                 </div>
                             </div>
                         </div>

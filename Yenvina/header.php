@@ -124,7 +124,7 @@ $product = new Product();
                             <div class="group-item">
                                 <div class="sign-in">
                                     <?php if(isset($_SESSION['user']['name'])){ ?>
-                                        <a href="./login.php"><?=$_SESSION['user']['name']?></a>
+                                        <a href="#"><?=$_SESSION['user']['name']?></a>
                                         <span class="mx-1">/</span>
                                         <a href="./action/logout.php">Đăng Xuất</a>
                                     <?php }else{ ?>

@@ -27,9 +27,9 @@ $getAllInfoOfUser = $user->getAllInfoOfUser();
                                             <th width="2%">STT</th>
                                             <th width="10%">Tên tài khoản</th>
                                             <th width="10%">Tên người dùng</th>
-                                            <th width="10%">Ngày sinh</th>
                                             <th width="10%">Điên thoại</th>
                                             <th width="20%">Địa chỉ</th>
+                                            <th width="10%">Ngày tạo</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -40,9 +40,9 @@ $getAllInfoOfUser = $user->getAllInfoOfUser();
                                             <td><?= $count++; ?></td>
                                             <td><?=$item['user_name']?></td>
                                             <td><?=$item['name_user']?></td>
-                                            <td><?=$item['birth']?></td>
                                             <td><?=$item['phone']?></td>
                                             <td><?=$item['address']?></td>
+                                            <td><?=$item['create_at']?></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>

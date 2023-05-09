@@ -212,6 +212,7 @@ $urlImg = 'http://localhost/Yenvina';
                 <div id="collapseInfo" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?= $url ?>/ui/group_user/user/user_list.php">Danh sách người dùng</a>
+                        <a class="collapse-item" href="<?= $url ?>/ui/cart/payment_list.php">Danh sách thanh toán</a>
                     </div>
                 </div>
             </li>

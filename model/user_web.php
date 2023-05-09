@@ -28,7 +28,7 @@ class UserWeb extends Database{
      * Get all information of user and show them in screen
      */
     function getAllInfoOfUser(){
-        $sql = parent::$connection->prepare("SELECT * FROM `user_web`,`info_user` WHERE `user_web`.`id` = `info_user`.`user_id`");
+        $sql = parent::$connection->prepare("SELECT * FROM `user_web`,`info_user` WHERE `user_web`.`user_id` = `info_user`.`user_id`");
         return parent::select($sql);
     }
     /**
@@ -69,5 +69,12 @@ class UserWeb extends Database{
         $sql = parent::$connection->prepare("UPDATE `info_user` SET `name_user`= ? ,`phone`= ? ,`address`= ? ,`update_at`= current_time WHERE user_id = ?");
         $sql->bind_param('ssss', $name, $phone, $address, $user_id);
         return $sql->execute();
+    }
+    /**
+     * Get all history payment of user
+     */
+    function getPaymentOfUser(){
+        $sql = parent::$connection->prepare("SELECT `payment`.`user_id` as id, `payment`.`transport` as transport, `payment`.`type_payment` as type_payment, `payment`.`total_price` as price, `payment`.`create_at` as date, `info_user`.`user_id` as user_id, `info_user`.`name_user` as name, `info_user`.`phone` as phone FROM payment, info_user WHERE payment.user_id = info_user.user_id");
+        return parent::select($sql);
     }
 }
