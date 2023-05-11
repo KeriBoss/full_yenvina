@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Forget - Yenvina</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Boxicons package -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/stylecustom.css" />
+</head>
+
+<body>
+    <div class="bg-white p-0">
+    <!-- Spinner Start -->
+    <div id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Header Start -->
+    <header>
+        <div class="container wow fadeIn" data-wow-delay="0.2s">
+            <div class="header-top row gx-2 d-flex justify-content-center align-items-center py-1">
+                <div class="col-lg-2 col-md-3 d-flex align-items-center">
+                    <div class="menu-bar"><i class="bx bx-menu"></i></div>
+                    <div class="logo">
+                        <a href="#"><img src="./img/logo.png" alt="" /></a>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-5">
+                    <div class="search">
+                        <form action="./search.html" method="get">
+                            <input width="100%" type="search" name=""
+                                placeholder="Trao gửi tri ân - Nhận niềm vui mới..." />
+                            <button type="submit">
+                                <i class="bx bx-search"></i> Tim kiem
+                            </button>
+                        </form>
+                        <div class="nav-product">
+                            <ul>
+                                <li><a href="./product.html">Thượng Vy Yến Biển</a></li>
+                                <span class="mx-1"> | </span>
+                                <li><a href="./product.html">Yến chưng tươi</a></li>
+                                <span class="mx-1"> | </span>
+                                <li><a href="./product.html">Thượng Vy Yến Biển</a></li>
+                                <span class="mx-1"> | </span>
+                                <li><a href="./product.html">Thượng Vy Yến Biển</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="group-user">
+                        <div class="search-mobile"><i class="bx bx-search"></i></div>
+                        <div class="user"><i class="bx bx-user"></i></div>
+                        <div class="group-item">
+                            <div class="sign-in">
+                                <a href="./login.html">Đăng nhập</a>
+                                <span class="mx-1">/</span>
+                                <a href="./register.html">Đăng ký</a>
+                            </div>
+                            <div class="name">Tài khoản</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-1 col-md-2">
+                    <div class="cart">
+                        <div class="create-cart" --i="5">
+                            <i class="bx bx-cart"></i>
+                        </div>
+                        <div class="note"><a href="./cart.html" class="cl-white">Giỏ hàng của bạn</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="menuBar" class="nav-bar bg-white" tabindex="-1">
+            <div class="container">
+                <div class="header-bottom row d-flex justify-content-center align-items-center">
+                    <div class="col-lg-3 p-0">
+                        <div class="list-product d-flex align-items-center">
+                            <i class="bx bx-menu"></i>
+                            <div class="nav-item dropdown">
+                                <a href="./product.html" class="nav-link dropdown-toggle cl-black"
+                                    data-bs-toggle="dropdown">Danh mục sản phẩm</a>
+                                <div class="dropdown-menu rounded-0 m-0">
+                                    <a href="./product.html" class="dropdown-item">Tổ yến</a>
+                                    <a href="./product.html" class="dropdown-item">Yến chưng tuơi Yến chưng tuơi</a>
+                                    <a href="./product.html" class="dropdown-item">Yến chưng sẵn</a>
+                                    <a href="./product.html" class="dropdown-item">Món Soup</a>
+                                    <a href="./product.html" class="dropdown-item">Món Hầm</a>
+                                </div>
+                            </div>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <div class="navbar-collapse justify-content-between" id="navbarCollapse">
+                                <div class="navbar-nav">
+                                    <a href="index.html" class="nav-item nav-link active">Trang chủ</a>
+                                    <div class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Sản
+                                            phẩm</a>
+                                        <div class="dropdown-menu rounded-0 m-0">
+                                            <a href="./product.html" class="dropdown-item">Tổ yến</a>
+                                            <a href="./product.html" class="dropdown-item">Yến chưng tuơi</a>
+                                            <a href="./product.html" class="dropdown-item">Yến chưng sẵn</a>
+                                            <a href="./product.html" class="dropdown-item">Món Soup</a>
+                                            <a href="./product.html" class="dropdown-item">Món Hầm</a>
+                                        </div>
+                                    </div>
+                                    <a href="./search.html" class="nav-item nav-link">Khuyến mãi</a>
+                                    <a href="./term_service.html" class="nav-item nav-link">Liên hệ</a>
+                                    <a href="./blogs.html" class="nav-item nav-link">Tin tức</a>
+                                    <a href="./term_service.html" class="nav-item nav-link">Về chúng tôi</a>
+                                    <a href="./term_service.html" class="nav-item nav-link">Chính sách đại lý</a>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Login start-->
+    <section class="login container">
+        <div class="forget cards">
+            <div class="title">Phục hồi mật khẩu</div>
+            <form action="#" method="post">
+                <input type="email" name="email" placeholder="Email" required>
+                <div class="desc">
+                    <span>This site is protected by reCAPTCHA and the Google</span> <br>
+                    <a href="#">Privacy Policy </a><span> and </span>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="group-btn">
+                    <div class="btn-tablink"><button type="submit">Gửi</button></div>
+                    <div class="func-orther">
+                        <div class="forget"><a href="./index.html">Hủy </a></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- Login end-->
+
+
+    <!-- Footer Start -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="row gx-5">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <img src="./img/logo.png" alt="Logo Yenvina" />
+                        <p class="f-item location">
+                            <i class="bx bx-location-plus"></i>
+                            <span>Tầng 3 tòa nhà CT2 Cửu Long, Số 536A Minh Khai, Phường Vĩnh
+                                Tuy, Quận Hai Bà Trưng, Thành phố Hà Nội, Việt Nam</span>
+                        </p>
+                        <p class="f-item phone">
+                            <i class="bx bx-phone"></i>
+                            <span>0213120390123</span>
+                        </p>
+                        <p class="f-item email">
+                            <i class="bx bx-envelope"></i>
+                            <span>fdsaf@gmail.com</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h3 class="footer-title">Hướng dẫn</h3>
+                                <div class="footer-content">
+                                    <ul>
+                                        <li class="item"><a href="#">Tìm kiếm</a></li>
+                                        <li class="item"><a href="#">Giới thiệu</a></li>
+                                        <li class="item"><a href="#">Chính sách đổi trả</a></li>
+                                        <li class="item"><a href="#">Chính sách bảo mật</a></li>
+                                        <li class="item"><a href="#">Điều khoản dịch vụ</a></li>
+                                        <li class="item"><a href="#">Liên hệ</a></li>
+                                        <li class="item">
+                                            <a href="#">Chính sách vận chuyển</a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="#">Chính sách thanh toán</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <h3 class="footer-title">Đăng ký xác nhận email</h3>
+                        <div class="footer-content">
+                            <div class="newsletter-form">
+                                <p>Hãy nhận email của bạn vào đây để nhận tin mới nhất</p>
+                                <form accept-charset="UTF-8" action="#" class="contact-form" method="post">
+                                    <div class="group-input">
+                                        <input type="text" required placeholder="Nhập email..." />
+                                        <button type="submit">
+                                            <i class="bx bxs-envelope"></i>
+                                        </button>
+                                    </div>
+                                    <div class="line-under"></div>
+                                </form>
+                            </div>
+                            <div class="footer-social">
+                                <a href="#" class="social-network"><i class="bx bxl-facebook-square"></i></a>
+                                <a href="#" class="social-network"><i class="bx bxl-google-plus"></i></a>
+                                <a href="#" class="social-network"><i class="bx bxl-instagram"></i></a>
+                                <a href="#" class="social-network"><i class="bx bxl-twitter"></i></a>
+                                <a href="#" class="social-network"><i class="bx bxl-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-center">
+                <div class="row gx-5">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <h3 class="footer-title">Phương thức thanh toán</h3>
+                        <div class="footer-content payments">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <img src="https://theme.hstatic.net/200000404397/1000922692/14/img_payment_item_1.png?v=556"
+                                            loading="lazy" alt="MasterCard" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="https://theme.hstatic.net/200000404397/1000922692/14/img_payment_item_2.png?v=556"
+                                            loading="lazy" alt="Visa" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="https://theme.hstatic.net/200000404397/1000922692/14/img_payment_item_3.png?v=556"
+                                            loading="lazy" alt="JCB" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="https://theme.hstatic.net/200000404397/1000922692/14/img_payment_item_4.png?v=556"
+                                            loading="lazy" alt="Delivary" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="https://theme.hstatic.net/200000404397/1000922692/14/img_payment_item_5.png?v=556"
+                                            loading="lazy" alt="napas" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <h3 class="footer-title">Phương thức vận chuyển</h3>
+                        <div class="footer-content transform">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <img src="https://theme.hstatic.net/200000404397/1000922692/14/img_transport_item_1.png?v=556"
+                                            class="dt-auto" loading="lazy" alt="MasterCard" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="https://theme.hstatic.net/200000404397/1000922692/14/img_transport_item_2.png?v=556"
+                                            class="dt-auto" loading="lazy" alt="Visa" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-wp">
+                    <p>
+                        Copyright &copy 2023
+                        <a href="">Yenvina Yến thượng đỉnh</a> .
+                        <a href="" target="_blank">Power by Lam</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    </div>
+
+<!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/mainJquery.js"></script>
+</body>
+
+</html>
