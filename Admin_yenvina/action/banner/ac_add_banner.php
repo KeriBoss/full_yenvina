@@ -4,9 +4,8 @@ require_once "../../jpath.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "./model/config.php";
 require_once $_SERVER["DOCUMENT_ROOT"] ."./model/database.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "./model/banner.php";
-require_once "../../.env";
 
-$target_dir = $urlImg;
+$target_dir =  $urlImg . "banner/";
 $target_file_web = $target_dir . basename($_FILES["img_web"]["name"]);//Target image for website
 $target_file_mobile = $target_dir . basename($_FILES["img_mobile"]["name"]);//Target image for mobile
 

@@ -4,9 +4,8 @@ require_once "../../jpath.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "./model/config.php";
 require_once $_SERVER["DOCUMENT_ROOT"] ."./model/database.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "./model/type_product.php";
-require_once "../../.env";
 
-$target_dir =  $urlImg;
+$target_dir =  $urlImg . "protype/";
 $target_file = $target_dir . basename($_FILES["image"]["name"]);
 // var_dump($target_file);die();
 $uploadOk = 1;

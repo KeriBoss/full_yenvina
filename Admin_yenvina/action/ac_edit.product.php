@@ -4,9 +4,9 @@ require_once "../jpath.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/model/config.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/model/database.php";
 require_once $_SERVER["DOCUMENT_ROOT"] ."./model/product.php";
-require_once "../.env";
 
-$target_dir =  $urlImg;
+
+$target_dir =  $urlImg . "product/";
 
 $target_name_file = basename($_FILES["thumbnail"]["name"]);
 
