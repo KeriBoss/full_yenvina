@@ -1,7 +1,7 @@
 <?php
 include "./header.php";
-require_once $refRoot."/model/product.php";
-require_once $refRoot."/model/type_product.php";
+require_once "../model/product.php";
+require_once "../model/type_product.php";
 
 //Get all product in database
 $products = new Product();
@@ -90,5 +90,5 @@ $allTypeProduct = $typeProduct->getAllTypeProduct();
 
 
     <?php
-    include $refRoot ."./Admin_yenvina/footer.php";
+    include "./footer.php";
     ?>

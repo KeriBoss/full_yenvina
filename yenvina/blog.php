@@ -1,6 +1,6 @@
 <?php
 include("./header.php");
-require_once $refRoot . "/model/articles.php";
+require_once "../model/articles.php";
 
 $article = new Articles();
 

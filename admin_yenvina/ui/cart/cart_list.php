@@ -1,7 +1,7 @@
 <?php
 include_once "../../header.php";
-require_once $refRoot . "./model/user_web.php";
-require_once $refRoot . "./model/cart.php";
+require_once  "../../../model/user_web.php";
+require_once  "../../../model/cart.php";
 
 $user = new UserWeb();
 
@@ -70,5 +70,5 @@ $getAllCartOfUser = $cart->getAllCartOfUser();//Get datas cart of user
 
 
     <?php
-    include $refRoot ."./Admin_yenvina/footer.php";
+    include "../../footer.php";
     ?>

@@ -1,11 +1,11 @@
 <?php
 session_start();
 define('JPATH_BASE', dirname(__FILE__));
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/config.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/database.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/product.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/type_product.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/cart.php";
+require_once  "../model/config.php";
+require_once  "../model/database.php";
+require_once  "../model/product.php";
+require_once  "../model/type_product.php";
+require_once  "../model/cart.php";
 
 $_SESSION['payment']['success'] = "false";
 //Create cart
@@ -25,7 +25,7 @@ foreach($getCartByUserId as $item){
 
 $url = 'http://localhost';
 $refRoot = $_SERVER["DOCUMENT_ROOT"];
-$refRootModel = $_SERVER["DOCUMENT_ROOT"].'/Yenvina';
+// $refRootModel = $_SERVER["DOCUMENT_ROOT"].'/yenvina';
 
 $protype = new Typeproduct();
 $getAllTypeProduct = $protype->getAllTypeProduct();

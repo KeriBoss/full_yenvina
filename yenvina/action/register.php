@@ -1,9 +1,9 @@
 <?php
 session_start();
 define('JPATH_BASE', dirname(__FILE__));
-require_once $_SERVER["DOCUMENT_ROOT"] . "./model/config.php";
-require_once $_SERVER["DOCUMENT_ROOT"] ."./model/database.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "./model/user_web.php";
+require_once "../../model/config.php";
+require_once "../../model/database.php";
+require_once "../../model/user_web.php";
 
 
 if(isset($_POST['first']) && isset($_POST['last']) && isset($_POST['email']) && isset($_POST['password']) && $_SESSION['user']['temp']){

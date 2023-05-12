@@ -1,6 +1,6 @@
 <?php
 include_once "../../header.php";
-require_once $refRoot . "./model/banner.php";
+require_once  "../../../model/banner.php";
 
 //Created new type of product
 $banner = new Banner();
@@ -72,5 +72,5 @@ $getAllBanner = $banner->getAllBanner();
             <!-- End of Main Content -->
 
     <?php
-    include $refRoot ."./Admin_yenvina/footer.php";
+    include "../../footer.php";
     ?>

@@ -1,6 +1,6 @@
 <?php
 include("./header.php");
-require_once $refRoot . "/model/comment.php";
+require_once "../model/comment.php";
 
 
 if (isset($_GET['id'])) {
@@ -33,15 +33,10 @@ $getCommentByProduct = $comment->getCommentByProduct($product_id);
 
         padding: 5px;
     }
-
-
-
     .comment-area textarea {
         resize: none;
         border: 1px solid #ad9f9f;
     }
-
-
     .form-control:focus {
         color: #495057;
         background-color: #fff;
@@ -55,7 +50,6 @@ $getCommentByProduct = $comment->getCommentByProduct($product_id);
         background-color: #c4903b;
         border-color: #c4903b;
     }
-
     .send:hover {
         color: #fff;
         background-color: #c4903b;
@@ -63,7 +57,7 @@ $getCommentByProduct = $comment->getCommentByProduct($product_id);
     }
 
 
-    .rating {
+    .comment-box .rating {
         display: flex;
         margin-top: -10px;
         flex-direction: row-reverse;
@@ -71,11 +65,11 @@ $getCommentByProduct = $comment->getCommentByProduct($product_id);
         float: left;
     }
 
-    .rating>input {
+    .comment-box .rating>input {
         display: none;
     }
 
-    .rating>label {
+    .comment-box .rating>label {
         position: relative;
         width: 19px;
         font-size: 25px;
@@ -83,35 +77,25 @@ $getCommentByProduct = $comment->getCommentByProduct($product_id);
         cursor: pointer;
     }
 
-    .rating>label::before {
+    .comment-box .rating>label::before {
         content: "\2605";
         position: absolute;
         opacity: 0
     }
 
-    .rating>label:hover:before,
-    .rating>label:hover~label:before {
+    .comment-box .rating>label:hover:before,
+    .comment-box .rating>label:hover~label:before {
         opacity: 1 !important
     }
 
-    .rating>input:checked~label:before {
+    .comment-box .rating>input:checked~label:before {
         opacity: 1
     }
 
-    .rating:hover>input:checked~label:before {
+    .comment-box .rating:hover>input:checked~label:before {
         opacity: 0.4
     }
 
-
-    .dots {
-
-        height: 4px;
-        width: 4px;
-        margin-bottom: 2px;
-        background-color: #bbb;
-        border-radius: 50%;
-        display: inline-block;
-    }
 
     .badge {
 
@@ -253,20 +237,6 @@ $getCommentByProduct = $comment->getCommentByProduct($product_id);
                                         <i><?= $getProductById[0]['prices'] ?></i>
                                         <span class="sale">-<?= $getProductById[0]['sale'] ?>%</span>
                                     </div>
-                                    <!-- <label class="weight">Trọng lượng</label>
-                                    <div class="group-form choose-weight mb-4">
-                                        <input type="radio" name="weight" id="choose1" hidden checked />
-                                        <label for="choose1">50gram</label>
-
-                                        <input type="radio" name="weight" id="choose2" hidden />
-                                        <label for="choose2">100gram</label>
-
-                                        <input type="radio" name="weight" id="choose3" hidden />
-                                        <label for="choose3">mix nhieu loại gia vị</label>
-
-                                        <input type="radio" name="weight" id="choose4" hidden />
-                                        <label for="choose4">mix nhieu loại gia vị</label>
-                                    </div> -->
                                     <div class="range">
                                         <input onclick="btnLowest(<?= $product_id, $getProductById[0]['quantity'] ?>)" type="button" class="lowest_quan" value="-" />
                                         <input id="cart_quantity" type="text" class="main_quan" name="quantity" value="1" />
@@ -274,8 +244,7 @@ $getCommentByProduct = $comment->getCommentByProduct($product_id);
                                     </div>
                                     <div class="group-form submit">
                                         <button class="add-cart" type="button">
-                                            <a data-toggle="modal" data-target="#popupAddCart" data-parent="<?= $product_id ?>" data-user="<?= $_SESSION['user']['temp'] ?>"><span>Add to
-                                                    cart</span></a>
+                                            <a data-toggle="modal" data-target="#popupAddCart" data-parent="<?= $product_id ?>" data-user="<?= $_SESSION['user']['temp'] ?>"><span>Thêm vào giỏ</span></a>
                                         </button>
                                         <button><a class="cl-white" href="./payment.php">Mua ngay</a></button>
                                     </div>
@@ -376,17 +345,11 @@ $getCommentByProduct = $comment->getCommentByProduct($product_id);
                         </div>
                         <div class="content-tabs">
                             <div class="tab active" id="tab1">
-                                <h1>Content tab 1</h1>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi officiis
-                                architecto provident numquam dolores ducimus at nulla ab velit suscipit iusto,
-                                itaque sint harum consequuntur similique pariatur beatae fugiat neque ad!
+                                <h1>Thông tin khác</h1>
                             </div>
 
                             <div class="tab" id="tab2">
-                                <h1>Content tab 2</h1>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi officiis
-                                architecto provident numquam dolores ducimus at nulla ab velit suscipit iusto,
-                                itaque sint harum consequuntur similique pariatur beatae fugiat neque ad!
+                                <h1>Hướng dẫn mua hàng</h1>
                             </div>
 
                             <div class="tab" id="tab3">
@@ -483,58 +446,53 @@ $getCommentByProduct = $comment->getCommentByProduct($product_id);
     </div>
     <div class="line-under mb-4"></div>
     <div class="product-slider">
-        <section id="product-splide" class="splide" aria-label="Beautiful Images">
+        <section class="product-splide splide" aria-label="Beautiful Images">
             <div class="splide__track">
                 <ul class="splide__list">
-                    <?php foreach ($getLatestProduct as $data) { ?>
-                        <li class="splide__slide">
-                            <div class="img">
-                                <div class="circle"></div>
-                                <div class="gift <?php if ($data['sale'] == 0) {
-                                                        echo "d-none";
-                                                    } ?>"><i class='bx bxs-gift'></i></div>
-                                <a href="./detail.html">
-                                    <img src="img/product/<?= $data['thumbnail'] ?>" loading="lazy" alt="<?= $data['thumbnail'] ?>" />
-                                </a>
-                                <div class="sale <?php if ($data['sale'] == 0) {
-                                                        echo "d-none";
-                                                    } ?>"><?= $data['sale'] ?>%</div>
+                    <?php foreach($getLatestProduct as $data){?>
+                    <li class="splide__slide">
+                        <div class="img">
+                            <div class="circle"></div>
+                            <div class="gift <?php if($data['sale'] == 0){echo "d-none";} ?>"><i class='bx bxs-gift'></i></div>
+                            <a href="./detail.php?id=<?=$data['id']?>">
+                                <img src="img/product/<?=$data['thumbnail']?>" loading="lazy"
+                                    alt="<?=$data['thumbnail']?>" />
+                            </a>
+                            <div class="sale <?php if($data['sale'] == 0){echo "d-none";} ?>"><?=$data['sale']?>%</div>
+                        </div>
+                        <div class="content">
+                            <div class="name"><a href="./detail.php?id=<?=$data['id']?>"><?=$data['product_name']?></a></div>
+                            <div class="rating">
+                            <?php
+                                $star = 5 - $data['rating'];
+                                if($data['rating'] > 0){
+                                    for($i = 0; $i < $data['rating']; $i++){
+                                        echo "<i class='bx bxs-star'></i>";
+                                    }
+                                }
+                                if($star <= 5 && $star > 0){
+                                    for($j = 0; $j < $star; $j++){
+                                        echo "<i class='bx bx-star'></i>";
+                                    }
+                                }
+                            ?>
                             </div>
-                            <div class="content">
-                                <div class="name"><a href="./detail.html"><?= $data['product_name'] ?></a></div>
-                                <div class="rating">
-                                    <?php
-                                    $star = 5 - $data['rating'];
-                                    if ($data['rating'] > 0) {
-                                        for ($i = 0; $i < $data['rating']; $i++) {
-                                            echo "<i class='bx bxs-star'></i>";
-                                        }
-                                    }
-                                    if ($star <= 5 && $star > 0) {
-                                        for ($j = 0; $j < $star; $j++) {
-                                            echo "<i class='bx bx-star'></i>";
-                                        }
-                                    }
-                                    ?>
-                                </div>
-                                <div class="box-prices">
-                                    <span class="current-price"><?= number_format($data['prices'] - (($data['prices'] * $data['sale']) / 100)) ?>vnd</span>
-                                    <span class="del-price <?php if ($data['sale'] == 0) {
-                                                                echo "d-none";
-                                                            } ?>">
-                                        <del> <?= number_format($data['prices']) ?> vnd</del>
-                                    </span>
-
-                                </div>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <div class="add-cart" style="cursor: pointer;">
-                                        <a data-toggle="modal" data-target="#popupAddCart"><span>Add to
-                                                cart</span></a>
-                                        <div class="icon-cart"><i class='bx bx-cart'></i></div>
-                                    </div>
+                            <div class="box-prices">
+                                <span class="current-price"><?= number_format($data['prices'] - (($data['prices'] * $data['sale']) / 100)) ?>vnd</span>
+                                <span class="del-price <?php if($data['sale'] == 0){echo "d-none";} ?>">
+                                    <del> <?= number_format($data['prices']) ?> vnd</del>
+                                </span>
+                                
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <div class="add-cart" style="cursor: pointer;">
+                                    <a data-toggle="modal" data-target="#popupAddCart" data-parent="<?=$data['id']?>" data-user="<?=$_SESSION['user']['temp']?>"><span>Add to
+                                            cart</span></a>
+                                    <div class="icon-cart"><i class='bx bx-cart'></i></div>
                                 </div>
                             </div>
-                        </li>
+                        </div>
+                    </li>
                     <?php } ?>
                 </ul>
             </div>

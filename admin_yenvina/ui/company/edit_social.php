@@ -1,6 +1,6 @@
 <?php
 include_once "../../header.php";
-require_once $refRoot . "./model/social.php";
+require_once  "../../../model/social.php";
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -80,5 +80,5 @@ for (var i = 0; i < document.querySelectorAll('.iconDiv').length; i++) {
 }
 </script>
 <?php
-    include $refRoot ."./Admin_yenvina/footer.php";
+    include "../../footer.php";
 ?>

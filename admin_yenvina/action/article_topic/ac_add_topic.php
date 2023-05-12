@@ -1,9 +1,9 @@
 <?php
 session_start();
 require_once "../../jpath.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "./model/config.php";
-require_once $_SERVER["DOCUMENT_ROOT"] ."./model/database.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "./model/article_topic.php";
+require_once  "../../../model/config.php";
+require_once "../../../model/database.php";
+require_once  "../../../model/article_topic.php";
 
 if(isset($_POST['topic_name'])){
     $topic_name = $_POST['topic_name'];

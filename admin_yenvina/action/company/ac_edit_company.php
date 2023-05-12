@@ -1,9 +1,9 @@
 <?php
 session_start();
 require_once "../../jpath.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "./model/config.php";
-require_once $_SERVER["DOCUMENT_ROOT"] ."./model/database.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "./model/company.php";
+require_once  "../../../model/config.php";
+require_once "../../../model/database.php";
+require_once  "../../../model/company.php";
 
 if(isset($_POST['company_name'])){
     $company_name = $_POST['company_name'];

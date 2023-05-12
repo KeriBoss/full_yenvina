@@ -1,6 +1,6 @@
 <?php
 include("./header.php");
-require_once $refRoot . "/model/banner.php";
+require_once "../model/banner.php";
 
 //Get all banner in database
 $banner = new Banner();
@@ -122,118 +122,6 @@ $total_pages = ceil (count($getAllProductHomepage) / $perPage);
                     <h3 class="title mb-0">Tổ yến</h3>
                     <div class="btn-filter"><i class='bx bx-filter-alt'></i> Bộ lọc</div>
                 </div>
-                <!-- <div class="filter-content d-flex flex-wrap justify-content-around align-items-center">
-                    <div class="dropdown">
-                        <button class="btn btn-droplink border dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Thương hiệu
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-item">
-                                <form method="post">
-                                    <input type="checkbox">
-                                    <label>Yenvina</label>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn btn-droplink border dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Loại
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-item">
-                                <form method="post">
-                                    <input type="checkbox">
-                                    <label>Tổ yến tinh chế</label>
-                                </form>
-                            </li>
-                            <li class="dropdown-item">
-                                <form method="post">
-                                    <input type="checkbox">
-                                    <label>Tổ yến thô</label>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn btn-droplink border dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Gía sản phẩm
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-item">
-                                <form method="post">
-                                    <input type="checkbox">
-                                    <label>Dưới 500,000d</label>
-                                </form>
-                                <form method="post">
-                                    <input type="checkbox">
-                                    <label>Dưới 100,000d</label>
-                                </form>
-                                <form method="post">
-                                    <input type="checkbox">
-                                    <label>Dưới 500,000d</label>
-                                </form>
-                                <form method="post">
-                                    <input type="checkbox">
-                                    <label>Dưới 100,000d</label>
-                                </form>
-                                <form method="post">
-                                    <input type="checkbox">
-                                    <label>Dưới 500,000d</label>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn btn-droplink border dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Dịch vụ
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-item">
-                                <form method="post">
-                                    <input type="checkbox">
-                                    <label>Giao hàng 2h</label>
-                                </form>
-                            </li>
-                            <li class="dropdown-item">
-                                <form method="post">
-                                    <input type="checkbox">
-                                    <label>Free ship</label>
-                                </form>
-                            </li>
-                            <li class="dropdown-item">
-                                <form method="post">
-                                    <input type="checkbox">
-                                    <label>Sale up 50%</label>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn btn-droplink border dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Giao hàng
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-item">
-                                <form method="post">
-                                    <input type="checkbox">
-                                    <label>Nội địa</label>
-                                </form>
-                            </li>
-                            <li class="dropdown-item">
-                                <form method="post">
-                                    <input type="checkbox">
-                                    <label>Quốc tế</label>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                </div> -->
                 <div class="box arrange">
                     <div class="title">Arrange for:</div>
                     <form method="get" action="./product.php?sort_by=" class="d-flex gap-3 flex-wrap">
@@ -259,7 +147,7 @@ $total_pages = ceil (count($getAllProductHomepage) / $perPage);
                                     <div class="img">
                                         <div class="circle"></div>
                                         <div class="gift <?php if($data['sale'] == 0){echo "d-none";} ?>"><i class='bx bxs-gift'></i></div>
-                                        <a href="./detail.html">
+                                        <a href="./detail.php?id=<?=$item['id']?>">
                                             <img src="img/product/<?=$item['thumbnail']?>"
                                                 alt="<?=$item['thumbnail']?>" />
                                         </a>

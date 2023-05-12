@@ -1,10 +1,10 @@
 <?php
 session_start();
 define('JPATH_BASE', dirname(__FILE__));
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/config.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/database.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/cart.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/user_web.php";
+require_once "../model/config.php";
+require_once "../model/database.php";
+require_once "../model/cart.php";
+require_once "../model/user_web.php";
 
 if(isset($_SESSION['user']['temp'])){
     $user_id = $_SESSION['user']['temp'];

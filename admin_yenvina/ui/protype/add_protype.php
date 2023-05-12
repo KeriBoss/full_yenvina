@@ -1,7 +1,7 @@
 <?php
 include_once "../../header.php";
-require_once $refRoot . "./model/product.php";
-require_once $refRoot . "./model/type_product.php";
+require_once  "../../../model/product.php";
+require_once  "../../../model/type_product.php";
 
 ?>
             <!-- Begin Page Content -->
@@ -42,5 +42,5 @@ require_once $refRoot . "./model/type_product.php";
             <!-- End of Main Content -->
 
     <?php
-    include $refRoot ."./Admin_yenvina/footer.php";
+    include "../../footer.php";
     ?>

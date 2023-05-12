@@ -1,9 +1,16 @@
 <?php
 session_start();
 define('JPATH_BASE', dirname(__FILE__));
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/config.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/database.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/users.php";
+
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+    $path = "https://";
+else
+    $path = "http://";
+// Append the host(domain name, ip) to the URL.   
+$path .= $_SERVER['HTTP_HOST'];
+require_once JPATH_BASE."../../model/config.php";
+require_once JPATH_BASE."../../model/database.php";
+require_once JPATH_BASE."../../model/users.php";
 
 
 if (!isset($_SESSION['admin'])) {
@@ -12,16 +19,12 @@ if (!isset($_SESSION['admin'])) {
     $current_user = $_SESSION['admin'];
 }
 $refRoot = $_SERVER["DOCUMENT_ROOT"];
-// if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
-//     $url = "https://";
-// else
-//     $url = "http://";
-// // Append the host(domain name, ip) to the URL.   
-// $url .= $_SERVER['HTTP_HOST'];
-// // Append the requested resource location to the URL   
-// $url .= $_SERVER['REQUEST_URI'];
-$url = 'http://localhost/Admin_yenvina';
-$urlImg = 'http://localhost/Yenvina';
+
+// Append the requested resource location to the URL   
+// $path .= $_SERVER['REQUEST_URI'];va
+
+$url = $path . '/admin_yenvina';
+$urlImg =  $path . '/yenvina';
 
 ?>
 <!DOCTYPE html>

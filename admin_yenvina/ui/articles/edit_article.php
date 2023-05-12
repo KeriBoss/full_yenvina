@@ -1,7 +1,7 @@
 <?php
 include_once "../../header.php";
-require_once $refRoot . "./model/article_topic.php";
-require_once $refRoot . "./model/articles.php";
+require_once  "../../../model/articles.php";
+require_once  "../../../model/article_topic.php";
 
 $topic = new ArticleTopic();
 $allTopic = $topic->getAllTopic();
@@ -27,7 +27,7 @@ $getArticleById = $article->getArticleById($article_id);
     <div class="card shadow mb-4">
         <div class="p-4 d-flex justify-content-start align-items-center">
             <form action="<?= $url ?>/action/articles/ac_edit_article.php" method="post" class="w-50" enctype="multipart/form-data">
-                <input type="number" name="user_id" class="form-control" value="<?= $_SESSION['user']['id']; ?>" hidden>
+                <input type="number" name="user_id" class="form-control" value="<?= $_SESSION['admin']['id']; ?>" hidden>
                 <input type="number" name="article_id" class="form-control" value="<?= $getArticleById[0]['id']; ?>" hidden>
                 <div class="form-group">
                     <label for="title">Tiêu đề</label>
@@ -107,5 +107,5 @@ $getArticleById = $article->getArticleById($article_id);
 </script>
 
 <?php
-    include $refRoot ."./Admin_yenvina/footer.php";
+    include "../../footer.php";
 ?>

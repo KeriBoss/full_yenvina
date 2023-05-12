@@ -1,7 +1,7 @@
 <?php
 include_once "../../header.php";
-require_once $refRoot . "./model/product.php";
-require_once $refRoot . "./model/type_product.php";
+require_once  "../../../model/product.php";
+require_once  "../../../model/type_product.php";
 
 if(isset($_GET['type_id'])){
     $type_id = $_GET['type_id'];
@@ -71,5 +71,5 @@ $getProtypeById = $protype->getProtypeById($type_id);
         }
     </script>
 <?php
-    include $refRoot ."./Admin_yenvina/footer.php";
+       include "../../footer.php";
 ?>

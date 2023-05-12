@@ -1,6 +1,6 @@
 <?php
 include_once "../../../header.php";
-require_once $refRoot . "./model/user_web.php";
+require_once  "../../../../model/user_web.php";
 
 $user = new UserWeb();
 $getAccount = $user->getAllAccount();
@@ -86,5 +86,5 @@ $getAccount = $user->getAllAccount();
         </div>
 
     <?php
-    include $refRoot ."./Admin_yenvina/footer.php";
+       include "../../../footer.php";
     ?>

@@ -1,9 +1,9 @@
 <?php
 session_start();
 require_once "../jpath.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/config.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/database.php";
-require_once $_SERVER["DOCUMENT_ROOT"] ."./model/product.php";
+require_once  "../../model/config.php";
+require_once "../../model/database.php";
+require_once  "../../model/product.php";
 
 
 $target_dir =  $urlImg . "product/";

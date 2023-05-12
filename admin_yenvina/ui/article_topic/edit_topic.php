@@ -1,6 +1,6 @@
 <?php
 include_once "../../header.php";
-require_once $refRoot . "./model/article_topic.php";
+require_once  "../../../model/article_topic.php";
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
@@ -34,5 +34,5 @@ $getTopic = $topic->getTopicById($id);
 </div>
 <!-- End of Main Content -->
 <?php
-    include $refRoot ."./Admin_yenvina/footer.php";
+    include "../../footer.php";
 ?>

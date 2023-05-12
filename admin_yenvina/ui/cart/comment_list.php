@@ -1,8 +1,8 @@
 <?php
 include_once "../../header.php";
-require_once $refRoot . "./model/user_web.php";
-require_once $refRoot . "./model/comment.php";
-require_once $refRoot . "./model/product.php";
+require_once  "../../../model/user_web.php";
+require_once  "../../../model/comment.php";
+require_once  "../../../model/product.php";
 
 $comment = new Comment();
 $getAllComment = $comment->getAllComment();
@@ -75,5 +75,5 @@ $getAllAccount = $user->getAllAccount();//Get datas cart of user
 
 
     <?php
-    include $refRoot ."./Admin_yenvina/footer.php";
+        include "../../footer.php";
     ?>

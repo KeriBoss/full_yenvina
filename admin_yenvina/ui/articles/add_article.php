@@ -1,6 +1,6 @@
 <?php
 include_once "../../header.php";
-require_once $refRoot . "./model/article_topic.php";
+require_once  "../../../model/article_topic.php";
 
 $topic = new ArticleTopic();
 $allTopic = $topic->getAllTopic();
@@ -17,7 +17,7 @@ $allTopic = $topic->getAllTopic();
     <div class="card shadow mb-4">
         <div class="p-4 d-flex justify-content-start align-items-center">
             <form action="<?= $url ?>/action/articles/ac_add_article.php" method="post" class="w-50" enctype="multipart/form-data">
-                <input type="text" name="user_id" class="form-control" value="<?= $_SESSION['user']['id']; ?>" hidden>
+                <input type="text" name="user_id" class="form-control" value="<?= $_SESSION['admin']['id']; ?>" hidden>
                 <div class="form-group">
                     <label for="title">Tiêu đề</label>
                     <input type="text" name="title" class="form-control" required>
@@ -62,5 +62,5 @@ $allTopic = $topic->getAllTopic();
 <!-- End of Main Content -->
 
 <?php
-    include $refRoot ."./Admin_yenvina/footer.php";
+include "../../footer.php";
 ?>

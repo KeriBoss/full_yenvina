@@ -1,11 +1,11 @@
 <?php
 session_start();
 define('JPATH_BASE', dirname(__FILE__));
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/config.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/database.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/user_web.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/comment.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/model/product.php";
+require_once "../model/config.php";
+require_once "../model/database.php";
+require_once "../model/user_web.php";
+require_once "../model/comment.php";
+require_once "../model/product.php";
 
 if(isset($_POST['product_id']) && isset($_POST['user_id']) && isset($_POST['content']) && isset($_POST['rating'])){
     $id = $_POST['product_id'];

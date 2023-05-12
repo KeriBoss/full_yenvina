@@ -1,6 +1,6 @@
 <?php
 include_once "../../header.php";
-require_once $refRoot . "./model/company.php";
+require_once  "../../../model/company.php";
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -60,5 +60,5 @@ $getCompanyById = $company->getCompanyById($id);
 </div>
 <!-- End of Main Content -->
 <?php
-    include $refRoot ."./Admin_yenvina/footer.php";
+      include "../../footer.php";
 ?>

@@ -1,6 +1,6 @@
 <?php
 include_once "../../header.php";
-require_once $refRoot . "./model/social.php";
+require_once  "../../../model/social.php";
 
 ?>
 <!-- Begin Page Content -->
@@ -58,5 +58,5 @@ require_once $refRoot . "./model/social.php";
 </div>
 <!-- End of Main Content -->
 <?php
-    include $refRoot ."./Admin_yenvina/footer.php";
+       include "../../footer.php";
 ?>

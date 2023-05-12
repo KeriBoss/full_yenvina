@@ -1,9 +1,9 @@
 <?php
 session_start();
 require_once "../../jpath.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "./model/config.php";
-require_once $_SERVER["DOCUMENT_ROOT"] ."./model/database.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "./model/articles.php";
+require_once  "../../../model/config.php";
+require_once "../../../model/database.php";
+require_once  "../../../model/articles.php";
 
 if(isset($_GET['article_id'])){
     $article_id = $_GET['article_id'];

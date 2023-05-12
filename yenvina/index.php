@@ -1,7 +1,7 @@
 <?php
 include("./header.php");
-require_once $refRoot . "/model/banner.php";
-require_once $refRoot . "/model/articles.php";
+require_once "../model/banner.php";
+require_once "../model/articles.php";
 
 //Get all banner in database
 $banner = new Banner();

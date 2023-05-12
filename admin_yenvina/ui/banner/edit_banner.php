@@ -1,6 +1,6 @@
 <?php
 include_once "../../header.php";
-require_once $refRoot . "./model/banner.php";
+require_once  "../../../model/banner.php";
 
 if(isset($_GET['banner_id'])){
     $banner_id = $_GET['banner_id'];
@@ -88,5 +88,5 @@ $getBannerById = $banner->getBannerById($banner_id);
 </script>
 
 <?php
-    include $refRoot ."./Admin_yenvina/footer.php";
+    include "../../footer.php";
 ?>
