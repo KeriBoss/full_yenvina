@@ -7,6 +7,17 @@ require_once  "../model/product.php";
 require_once  "../model/type_product.php";
 require_once  "../model/cart.php";
 
+$isSecure = false;
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+    $isSecure = true;
+}
+elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' || !empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on') {
+    $isSecure = true;
+}
+$REQUEST_PROTOCOL = $isSecure ? 'https://' : 'http://';
+// Append the host(domain name, ip) to the URL.   
+$path = $REQUEST_PROTOCOL . $_SERVER['HTTP_HOST'];
+
 $_SESSION['payment']['success'] = "false";
 //Create cart
 $cart = new Cart();
@@ -23,8 +34,9 @@ foreach($getCartByUserId as $item){
     $totalProduct += $item['quantity']*1;
 }
 
-$url = 'http://localhost';
-$refRoot = $_SERVER["DOCUMENT_ROOT"];
+
+$url = $path;
+$refRoot = $path;
 // $refRootModel = $_SERVER["DOCUMENT_ROOT"].'/yenvina';
 
 $protype = new Typeproduct();
