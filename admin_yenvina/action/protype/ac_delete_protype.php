@@ -12,7 +12,7 @@ if(isset($_GET['type_id'])){
 $protype = new Typeproduct();
 try {
     $delete = $protype->delete($type_id);
-    header('location: ../../ui/protype/protype_list.php');
+    header('location: ../../protype_list.php');
 } catch (Throwable $err) {
     echo $err;
 }

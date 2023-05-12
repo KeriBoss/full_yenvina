@@ -124,7 +124,7 @@ if(isset($_POST['href'])){
 $banner = new Banner();
 try {
     $insert = $banner->update($banner_id, $heading, $description, $img_web, $img_mobile, $position, $href);
-    header('location: ../../ui/banner/banner_list.php');
+    header('location: ../../banner_list.php');
 } catch (Throwable $err) {
     echo $err;
 }

@@ -27,7 +27,7 @@ if(isset($_POST['id_social'])){
 $social = new Social();
 try {
     $update = $social->update($id, $social_name, $description, $href, $icon_social, $status);
-    header('location: ../../ui/company/social_list.php');
+    header('location: ../../social_list.php');
 } catch (Throwable $err) {
     echo $err;
 }

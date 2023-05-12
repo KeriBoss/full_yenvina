@@ -1,7 +1,7 @@
 <?php
-include_once "../../header.php";
-require_once  "../../../model/product.php";
-require_once  "../../../model/type_product.php";
+include_once "./header.php";
+require_once  "../model/product.php";
+require_once  "../model/type_product.php";
 
 ?>
             <!-- Begin Page Content -->
@@ -15,7 +15,7 @@ require_once  "../../../model/type_product.php";
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                         <div class="p-4 d-flex justify-content-start align-items-center">
-                            <form action="<?= $url ?>/action/protype/ac_add_protype.php" method="post" class="w-75" enctype="multipart/form-data">
+                            <form action="action/protype/ac_add_protype.php" method="post" class="w-75" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="">Tên loại</label>
                                     <input type="text" name="type_name" class="form-control" required>
@@ -42,5 +42,5 @@ require_once  "../../../model/type_product.php";
             <!-- End of Main Content -->
 
     <?php
-    include "../../footer.php";
+include "./footer.php";
     ?>

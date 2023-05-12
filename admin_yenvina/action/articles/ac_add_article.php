@@ -72,7 +72,7 @@ if(isset($_POST['status_home'])){
 $article = new Articles();
 try {
     $insert = $article->insert($title, $content, $user_id, $topic_id , $image, $status, $status_home);
-    header('location: ../../ui/articles/article_list.php');
+    header('location: ../../article_list.php');
 } catch (Throwable $err) {
     echo $err;
 }

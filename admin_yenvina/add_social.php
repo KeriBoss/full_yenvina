@@ -1,6 +1,6 @@
 <?php
-include_once "../../header.php";
-require_once  "../../../model/social.php";
+include_once "./header.php";
+require_once  "../model/social.php";
 
 ?>
 <!-- Begin Page Content -->
@@ -14,7 +14,7 @@ require_once  "../../../model/social.php";
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="p-4 d-flex justify-content-start align-items-center">
-            <form action="<?= $url ?>/action/social/ac_add_social.php" method="post" class="w-50" enctype="multipart/form-data">
+            <form action="action/social/ac_add_social.php" method="post" class="w-50" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="">Tên</label>
                     <input type="text" name="social_name" class="form-control" required>
@@ -58,5 +58,5 @@ require_once  "../../../model/social.php";
 </div>
 <!-- End of Main Content -->
 <?php
-       include "../../footer.php";
+include "./footer.php";
 ?>

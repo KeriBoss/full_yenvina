@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once "../../jpath.php";
 require_once  "../../../model/config.php";
 require_once "../../../model/database.php";
 require_once  "../../../model/banner.php";
@@ -104,7 +103,7 @@ if(isset($_POST['href'])){
 $banner = new Banner();
 try {
     $insert = $banner->insert($heading, $description, $img_web, $img_mobile, $position, $href);
-    header('location: ../../ui/banner/banner_list.php');
+    header('location: ../../banner_list.php');
 } catch (Throwable $err) {
     echo $err;
 }

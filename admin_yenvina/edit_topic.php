@@ -1,6 +1,6 @@
 <?php
-include_once "../../header.php";
-require_once  "../../../model/article_topic.php";
+include_once "./header.php";
+require_once  "../model/article_topic.php";
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
@@ -19,7 +19,7 @@ $getTopic = $topic->getTopicById($id);
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="p-4 d-flex justify-content-start align-items-center">
-            <form action="<?= $url ?>/action/article_topic/ac_edit_topic.php" method="post" class="w-50" enctype="multipart/form-data">
+            <form action="action/article_topic/ac_edit_topic.php" method="post" class="w-50" enctype="multipart/form-data">
                 <input type="text" name="id" class="form-control" value="<?=$getTopic[0]['id']?>" hidden>
                 <div class="form-group">
                     <label for="">Tên chủ đề</label>
@@ -34,5 +34,5 @@ $getTopic = $topic->getTopicById($id);
 </div>
 <!-- End of Main Content -->
 <?php
-    include "../../footer.php";
+include "./footer.php";
 ?>

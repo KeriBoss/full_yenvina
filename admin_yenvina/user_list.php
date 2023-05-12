@@ -1,6 +1,6 @@
 <?php
-include_once "../../../header.php";
-require_once  "../../../../model/user_web.php";
+include_once "./header.php";
+require_once  "../model/user_web.php";
 
 $user = new UserWeb();
 $getAllInfoOfUser = $user->getAllInfoOfUser();
@@ -59,5 +59,5 @@ $getAllInfoOfUser = $user->getAllInfoOfUser();
 
 
     <?php
-          include "../../../footer.php";
+include "./footer.php";
     ?>

@@ -1,6 +1,6 @@
 <?php
-include_once "../../header.php";
-require_once  "../../../model/article_topic.php";
+include_once "./header.php";
+require_once  "../model/article_topic.php";
 
 ?>
 <!-- Begin Page Content -->
@@ -14,7 +14,7 @@ require_once  "../../../model/article_topic.php";
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="p-4 d-flex justify-content-start align-items-center">
-            <form action="<?= $url ?>/action/article_topic/ac_add_topic.php" method="post" class="w-50" enctype="multipart/form-data">
+            <form action="action/article_topic/ac_add_topic.php" method="post" class="w-50" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="">Tên chủ đề</label>
                     <input type="text" name="topic_name" class="form-control" required>
@@ -28,5 +28,5 @@ require_once  "../../../model/article_topic.php";
 </div>
 <!-- End of Main Content -->
 <?php
-    include "../../footer.php";
+include "./footer.php";
 ?>

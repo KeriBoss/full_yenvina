@@ -12,7 +12,7 @@ if(isset($_GET['id'])){
 $article_topic = new ArticleTopic();
 try {
     $delete = $article_topic->delete($id);
-    header('location: ../../ui/article_topic/topic_list.php');
+    header('location: ../../topic_list.php');
 } catch (Throwable $err) {
     echo $err;
 }

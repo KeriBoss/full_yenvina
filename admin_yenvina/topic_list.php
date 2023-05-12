@@ -1,6 +1,6 @@
 <?php
-include_once "../../header.php";
-require_once  "../../../model/article_topic.php";
+include_once "./header.php";
+require_once  "../model/article_topic.php";
 
 $topic = new ArticleTopic();
 $getAllTopic = $topic->getAllTopic();
@@ -56,5 +56,5 @@ $getAllTopic = $topic->getAllTopic();
 <!-- End of Main Content -->
 
 <?php
-    include "../../footer.php";
+include "./footer.php";
 ?>

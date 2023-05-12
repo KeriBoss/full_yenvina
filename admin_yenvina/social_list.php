@@ -1,6 +1,6 @@
 <?php
-include_once "../../header.php";
-require_once  "../../../model/social.php";
+include_once "./header.php";
+require_once  "../model/social.php";
 
 $social = new Social();
 $getAllSocial = $social->getAllSocial();
@@ -66,5 +66,5 @@ $getAllSocial = $social->getAllSocial();
 <!-- End of Main Content -->
 
 <?php
-       include "../../footer.php";
+include "./footer.php";
 ?>

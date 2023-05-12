@@ -15,7 +15,7 @@ if(isset($_POST['topic_name'])){
 $article_topic = new ArticleTopic();
 try {
     $update = $article_topic->update($id, $topic_name);
-    header('location: ../../ui/article_topic/topic_list.php');
+    header('location: ../../topic_list.php');
 } catch (Throwable $err) {
     echo $err;
 }

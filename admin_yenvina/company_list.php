@@ -1,6 +1,6 @@
 <?php
-include_once "../../header.php";
-require_once  "../../../model/company.php";
+include_once "./header.php";
+require_once  "../model/company.php";
 
 $company = new Company();
 $getCompany = $company->getAllCompany();
@@ -62,5 +62,5 @@ $getCompany = $company->getAllCompany();
 <!-- End of Main Content -->
 
 <?php
-        include "../../footer.php";
+include "./footer.php";
 ?>

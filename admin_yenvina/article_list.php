@@ -1,7 +1,7 @@
 <?php
-include_once "../../header.php";
-require_once  "../../../model/articles.php";
-require_once  "../../../model/article_topic.php";
+include_once "./header.php";
+require_once  "../model/articles.php";
+require_once  "../model/article_topic.php";
 
 //Created article topic
 $topic = new ArticleTopic();
@@ -87,5 +87,5 @@ $getAllTopic = $topic->getAllTopic();
             <!-- End of Main Content -->
 
     <?php
-include "../../footer.php";
+include "./footer.php";
     ?>

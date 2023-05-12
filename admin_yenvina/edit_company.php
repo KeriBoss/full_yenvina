@@ -1,6 +1,6 @@
 <?php
-include_once "../../header.php";
-require_once  "../../../model/company.php";
+include_once "./header.php";
+require_once  "../model/company.php";
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -25,7 +25,7 @@ $getCompanyById = $company->getCompanyById($id);
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="p-4 d-flex justify-content-start align-items-center">
-            <form action="<?= $url ?>/action/company/ac_edit_company.php" method="post" class="w-75" enctype="multipart/form-data">
+            <form action="action/company/ac_edit_company.php" method="post" class="w-75" enctype="multipart/form-data">
                 <input type="number" name="id_company" value="<?= $id ?>" hidden>
                 <div class="form-group">
                     <label for="">Tên công ty</label>
@@ -60,5 +60,5 @@ $getCompanyById = $company->getCompanyById($id);
 </div>
 <!-- End of Main Content -->
 <?php
-      include "../../footer.php";
+include "./footer.php";
 ?>

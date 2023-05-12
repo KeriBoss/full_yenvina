@@ -63,7 +63,7 @@ if(isset($_POST['description'])){
 $protype = new Typeproduct();
 try {
     $insert = $protype->insert($type_name, $image, $position, $description);
-    header('location: ../../ui/protype/protype_list.php');
+    header('location: ../../protype_list.php');
 } catch (Throwable $err) {
     echo $err;
 }

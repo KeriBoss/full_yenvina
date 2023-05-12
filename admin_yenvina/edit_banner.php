@@ -1,6 +1,6 @@
 <?php
-include_once "../../header.php";
-require_once  "../../../model/banner.php";
+include_once "./header.php";
+require_once  "../model/banner.php";
 
 if(isset($_GET['banner_id'])){
     $banner_id = $_GET['banner_id'];
@@ -23,7 +23,7 @@ $getBannerById = $banner->getBannerById($banner_id);
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="p-4 d-flex justify-content-start align-items-center">
-            <form action="<?= $url ?>/action/banner/ac_edit_banner.php" method="post" class="w-50" enctype="multipart/form-data">
+            <form action="action/banner/ac_edit_banner.php" method="post" class="w-50" enctype="multipart/form-data">
                 <input type="number" name="banner_id" value="<?=$banner_id?>" hidden>
                 <div class="form-group">
                     <label for="">Tiêu đề</label>
@@ -88,5 +88,5 @@ $getBannerById = $banner->getBannerById($banner_id);
 </script>
 
 <?php
-    include "../../footer.php";
+include "./footer.php";
 ?>

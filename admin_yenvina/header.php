@@ -13,9 +13,9 @@ $REQUEST_PROTOCOL = $isSecure ? 'https://' : 'http://';
 // Append the host(domain name, ip) to the URL.  
 $path = $REQUEST_PROTOCOL . $_SERVER['HTTP_HOST'];
 
-require_once JPATH_BASE . "../../model/config.php";
-require_once JPATH_BASE . "../../model/database.php";
-require_once JPATH_BASE . "../../model/users.php";
+require_once  "../model/config.php";
+require_once "../model/database.php";
+require_once "../model/users.php";
 
 if (!isset($_SESSION['admin'])) {
     header('location: login.php');
@@ -25,10 +25,9 @@ if (!isset($_SESSION['admin'])) {
 $refRoot = $path;
 
 // Append the requested resource location to the URL   
-// $path .= $_SERVER['REQUEST_URI'];va
+// $path .= $_SERVER['REQUEST_URI'];
 
-$url = $path . '/admin_yenvina';
-$urlImg =  $path . '/yenvina';
+$urlImg =  '../yenvina';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,16 +43,16 @@ $urlImg =  $path . '/yenvina';
     <title>Admin Yenvina</title>
 
     <!-- Custom fonts for this template-->
-    <link href="<?= $url ?>/public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- Custom styles for this template-->
-    <link href="<?= $url ?>/public/css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="<?= $url ?>/public/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link href="<?= $url ?>/public/css/sb-admin-2.css" rel="stylesheet">
+    <link href="public/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="public/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="public/css/sb-admin-2.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -64,9 +63,9 @@ $urlImg =  $path . '/yenvina';
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= $url ?>/index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
-                    <img src="<?=$url?>/public/img/logo" class="img-fluid" alt="Logo">
+                    <img src="public/img/logo" class="img-fluid" alt="Logo">
                 </div>
                 <div class="sidebar-brand-text mx-3">Admin Yenvina</div>
             </a>
@@ -79,14 +78,14 @@ $urlImg =  $path . '/yenvina';
             </div>
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active"></i>
-                <a class="nav-link collapsed" href="<?= $url ?>/index.php" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <a class="nav-link collapsed" href="index.php" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Quản lý sản phẩm</span>
                 </a>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= $url ?>/index.php">Danh sách sản phẩm</a>
-                        <a class="collapse-item" href="<?= $url ?>/add_product.php">Thêm sản phẩm</a>
+                        <a class="collapse-item" href="index.php">Danh sách sản phẩm</a>
+                        <a class="collapse-item" href="add_product.php">Thêm sản phẩm</a>
                     </div>
                 </div>
             </li>
@@ -108,8 +107,8 @@ $urlImg =  $path . '/yenvina';
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-                        <a class="collapse-item" href="<?= $url ?>/ui/protype/protype_list.php">Danh sách loại sản phẩm</a>
-                        <a class="collapse-item" href="<?= $url ?>/ui/protype/add_protype.php">Thêm loại sản phẩm</a>
+                        <a class="collapse-item" href="protype_list.php">Danh sách loại sản phẩm</a>
+                        <a class="collapse-item" href="add_protype.php">Thêm loại sản phẩm</a>
                     </div>
                 </div>
             </li>
@@ -122,8 +121,8 @@ $urlImg =  $path . '/yenvina';
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= $url ?>/ui/banner/banner_list.php">Danh sách banner</a>
-                        <a class="collapse-item" href="<?= $url ?>/ui/banner/add_banner.php">Thêm banner mới</a>
+                        <a class="collapse-item" href="banner_list.php">Danh sách banner</a>
+                        <a class="collapse-item" href="add_banner.php">Thêm banner mới</a>
                     </div>
                 </div>
             </li>
@@ -144,9 +143,9 @@ $urlImg =  $path . '/yenvina';
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= $url ?>/ui/company/company_list.php">Danh sách công ty</a>
-                        <a class="collapse-item" href="<?= $url ?>/ui/company/social_list.php">Danh sách social</a>
-                        <a class="collapse-item" href="<?= $url ?>/ui/company/add_social.php">Thêm social mới</a>
+                        <a class="collapse-item" href="company_list.php">Danh sách công ty</a>
+                        <a class="collapse-item" href="social_list.php">Danh sách social</a>
+                        <a class="collapse-item" href="add_social.php">Thêm social mới</a>
                         <!-- <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="blank.html">Blank Page</a> -->
@@ -170,8 +169,8 @@ $urlImg =  $path . '/yenvina';
                 </a>
                 <div id="collapseTopic" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= $url ?>/ui/article_topic/topic_list.php">Danh sách chủ đề</a>
-                        <a class="collapse-item" href="<?= $url ?>/ui/article_topic/add_topic.php">Thêm chủ đề mới</a>
+                        <a class="collapse-item" href="topic_list.php">Danh sách chủ đề</a>
+                        <a class="collapse-item" href="add_topic.php">Thêm chủ đề mới</a>
                     </div>
                 </div>
             </li>
@@ -183,8 +182,8 @@ $urlImg =  $path . '/yenvina';
                 </a>
                 <div id="collapseArticle" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= $url ?>/ui/articles/article_list.php">Danh sách bài viết</a>
-                        <a class="collapse-item" href="<?= $url ?>/ui/articles/add_article.php">Thêm bài viết mới</a>
+                        <a class="collapse-item" href="article_list.php">Danh sách bài viết</a>
+                        <a class="collapse-item" href="add_article.php">Thêm bài viết mới</a>
                     </div>
                 </div>
             </li>
@@ -205,7 +204,7 @@ $urlImg =  $path . '/yenvina';
                 </a>
                 <div id="collapseUser" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= $url ?>/ui/group_user/account/account_list.php">Danh sách tài khoản</a>
+                        <a class="collapse-item" href="account_list.php">Danh sách tài khoản</a>
                     </div>
                 </div>
             </li>
@@ -217,9 +216,9 @@ $urlImg =  $path . '/yenvina';
                 </a>
                 <div id="collapseInfo" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= $url ?>/ui/group_user/user/user_list.php">Danh sách người dùng</a>
-                        <a class="collapse-item" href="<?= $url ?>/ui/cart/payment_list.php">Danh sách thanh toán</a>
-                        <a class="collapse-item" href="<?= $url ?>/ui/cart/comment_list.php">Danh sách bình luận</a>
+                        <a class="collapse-item" href="user_list.php">Danh sách người dùng</a>
+                        <a class="collapse-item" href="payment_list.php">Danh sách thanh toán</a>
+                        <a class="collapse-item" href="comment_list.php">Danh sách bình luận</a>
                     </div>
                 </div>
             </li>
@@ -231,7 +230,7 @@ $urlImg =  $path . '/yenvina';
                 </a>
                 <div id="collapseCart" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= $url ?>/ui/cart/cart_list.php">Danh sách giỏ hàng</a>
+                        <a class="collapse-item" href="cart_list.php">Danh sách giỏ hàng</a>
                     </div>
                 </div>
             </li>
@@ -246,7 +245,7 @@ $urlImg =  $path . '/yenvina';
 
             <!-- Sidebar Message -->
             <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="<?= $url ?>/public/img/undraw_rocket.svg" alt="...">
+                <img class="sidebar-card-illustration mb-2" src="public/img/undraw_rocket.svg" alt="...">
                 <p class="text-center mb-2"><strong>Yenvina</strong></p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
             </div>
@@ -418,7 +417,7 @@ $urlImg =  $path . '/yenvina';
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $current_user['user_name'] ?></span>
-                    <img class="img-profile rounded-circle" src="<?= $url ?>/public/img/undraw_profile.svg">
+                    <img class="img-profile rounded-circle" src="public/img/undraw_profile.svg">
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

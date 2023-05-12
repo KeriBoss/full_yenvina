@@ -1,6 +1,6 @@
 <?php
-include_once "../../../header.php";
-require_once  "../../../../model/user_web.php";
+include_once "./header.php";
+require_once  "../model/user_web.php";
 
 $user = new UserWeb();
 $getAccount = $user->getAllAccount();
@@ -86,5 +86,5 @@ $getAccount = $user->getAllAccount();
         </div>
 
     <?php
-       include "../../../footer.php";
+       include "./footer.php";
     ?>

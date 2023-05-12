@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once "../../jpath.php";
 require_once  "../../../model/config.php";
 require_once "../../../model/database.php";
 require_once  "../../../model/company.php";
@@ -30,7 +29,7 @@ if(isset($_POST['id_company'])){
 $company = new Company();
 try {
     $update = $company->update($id, $company_name, $phone, $email, $address, $work_time, $description);
-    header('location: ../../ui/company/company_list.php');
+    header('location: ../../company_list.php');
 } catch (Throwable $err) {
     echo $err;
 }

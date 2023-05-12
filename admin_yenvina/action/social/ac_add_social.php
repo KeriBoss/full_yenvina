@@ -24,7 +24,7 @@ if(isset($_POST['icon_social'])){
 $social = new Social();
 try {
     $insert = $social->insert($social_name, $description, $href, $icon_social, $status);
-    header('location: ../../ui/company/social_list.php');
+    header('location: ../../social_list.php');
 } catch (Throwable $err) {
     echo $err;
 }

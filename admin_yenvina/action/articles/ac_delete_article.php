@@ -12,7 +12,7 @@ if(isset($_GET['article_id'])){
 $articles = new Articles();
 try {
     $delete = $articles->delete($article_id);
-    header('location: ../../ui/articles/article_list.php');
+    header('location: ../../article_list.php');
 } catch (Throwable $err) {
     echo $err;
 }

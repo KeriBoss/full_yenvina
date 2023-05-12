@@ -12,7 +12,7 @@ if(isset($_GET['id'])){
 $social = new Social();
 try {
     $delete = $social->delete($social_id);
-    header('location: ../../ui/company/social_list.php');
+    header('location: ../../social_list.php');
 } catch (Throwable $err) {
     echo $err;
 }

@@ -1,7 +1,7 @@
 <?php
-include_once "../../header.php";
-require_once  "../../../model/user_web.php";
-require_once  "../../../model/cart.php";
+include_once "./header.php";
+require_once  "../model/user_web.php";
+require_once  "../model/cart.php";
 
 $user = new UserWeb();
 
@@ -66,5 +66,5 @@ $getPaymentOfUser = $user->getPaymentOfUser();
 
 
     <?php
-       include "../../footer.php";
+include "./footer.php";
     ?>
