@@ -2,7 +2,6 @@
 session_start();
 define('JPATH_BASE', dirname(__FILE__));
 
-
 $isSecure = false;
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
     $isSecure = true;
@@ -11,19 +10,19 @@ elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED
     $isSecure = true;
 }
 $REQUEST_PROTOCOL = $isSecure ? 'https://' : 'http://';
-// Append the host(domain name, ip) to the URL.   
+// Append the host(domain name, ip) to the URL.  
 $path = $REQUEST_PROTOCOL . $_SERVER['HTTP_HOST'];
-require_once JPATH_BASE."../../model/config.php";
-require_once JPATH_BASE."../../model/database.php";
-require_once JPATH_BASE."../../model/users.php";
 
+require_once JPATH_BASE . "../../model/config.php";
+require_once JPATH_BASE . "../../model/database.php";
+require_once JPATH_BASE . "../../model/users.php";
 
 if (!isset($_SESSION['admin'])) {
     header('location: login.php');
 } else {
     $current_user = $_SESSION['admin'];
 }
-$refRoot = $_SERVER["DOCUMENT_ROOT"];
+$refRoot = $path;
 
 // Append the requested resource location to the URL   
 // $path .= $_SERVER['REQUEST_URI'];va

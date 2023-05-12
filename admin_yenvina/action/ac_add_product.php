@@ -5,7 +5,7 @@ require_once  "../../model/config.php";
 require_once "../../model/database.php";
 require_once  "../../model/product.php";
 
-$target_dir =  $urlImg . "product/";
+$target_dir =   "../../yenvina/img/product";
 $target_file = $target_dir . basename($_FILES["thumbnail"]["name"]);
 // var_dump($target_file);die();
 $uploadOk = 1;

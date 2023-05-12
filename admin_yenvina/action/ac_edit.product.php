@@ -6,7 +6,7 @@ require_once "../../model/database.php";
 require_once  "../../model/product.php";
 
 
-$target_dir =  $urlImg . "product/";
+$target_dir =  "../../yenvina/img/product";
 
 $target_name_file = basename($_FILES["thumbnail"]["name"]);
 

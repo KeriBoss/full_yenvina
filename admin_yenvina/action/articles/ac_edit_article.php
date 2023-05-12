@@ -5,7 +5,7 @@ require_once  "../../../model/config.php";
 require_once "../../../model/database.php";
 require_once  "../../../model/articles.php";
 
-$target_dir =  $urlImg . "article/";
+$target_dir =  "../../../yenvina/img/article";
 $target_name_file = basename($_FILES["image"]["name"]);
 
 if($target_name_file == ''){

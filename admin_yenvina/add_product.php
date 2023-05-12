@@ -1,6 +1,6 @@
 <?php
 include("./header.php");
-require_once $refRoot."/model/type_product.php";
+require_once "../model/type_product.php";
 
 //Created new type of product
 $typeProduct = new Typeproduct();
@@ -61,5 +61,5 @@ $allTypeProduct = $typeProduct->getAllTypeProduct();
 
 
     <?php
-include $refRoot ."/Admin_yenvina/footer.php";
+include "./footer.php";
     ?>

@@ -5,7 +5,7 @@ require_once  "../../../model/config.php";
 require_once "../../../model/database.php";
 require_once  "../../../model/banner.php";
 
-$target_dir =  $urlImg . "banner/";
+$target_dir =  "../../../yenvina/img/banner";
 
 //TODO: Img for website
 $target_name_file_web = basename($_FILES["img_web"]["name"]);
