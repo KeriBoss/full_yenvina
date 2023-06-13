@@ -51,7 +51,7 @@ $getAllSocial = $social->getAllSocial();
                                     echo "<td>Ẩn</td>";
                                 } ?>
                                 <td><a href="./edit_social.php?id=<?=$item['id'];?>" class="btn btn-primary">Edit</a></td>
-                                <td><a onclick="if(CheckForm() == false) return false" href="../../action/social/ac_delete_social.php?id=<?=$item['id'];?>" class="btn btn-danger">Delete</a></td>
+                                <td><a onclick="if(CheckForm() == false) return false" href="action/social/ac_delete_social.php?id=<?=$item['id'];?>" class="btn btn-danger">Delete</a></td>
                             </tr>
                         <?php } ?>
                     </tbody>

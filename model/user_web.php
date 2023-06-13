@@ -14,7 +14,7 @@ class UserWeb extends Database{
      * Register
      */
     function register($user_id, $first, $last, $email, $password){
-        $sql = parent::$connection->prepare("INSERT INTO `user_web`( `user_id`,`user_name`, `email`, `password`) VALUES (?, ?, ?, ?)");
+        $sql = parent::$connection->prepare("INSERT INTO `user_web`( `user_id`,`user_name`, `email`, `password`, `update_at`) VALUES (?, ?, ?, ?, current_date)");
         $user_name = $first . ' ' . $last;
         $sql->bind_param('ssss', $user_id, $user_name, $email, $password);
         return $sql->execute();
@@ -35,7 +35,7 @@ class UserWeb extends Database{
      * Create info for user payment
      */
     function insert($user_id, $name_user, $phone, $address){
-        $sql = parent::$connection->prepare("INSERT INTO `info_user`( `user_id`, `name_user`, `phone`, `address`) VALUES (?, ?, ?, ?)");
+        $sql = parent::$connection->prepare("INSERT INTO `info_user`( `user_id`, `name_user`, `phone`, `address`, `update_at`) VALUES (?, ?, ?, ?, current_date)");
         $sql->bind_param('ssss', $user_id, $name_user, $phone, $address);
         return $sql->execute();
     }
@@ -66,7 +66,7 @@ class UserWeb extends Database{
      * Update
      */
     function updateUserInfoById($user_id, $name, $phone, $address){
-        $sql = parent::$connection->prepare("UPDATE `info_user` SET `name_user`= ? ,`phone`= ? ,`address`= ? ,`update_at`= current_time WHERE user_id = ?");
+        $sql = parent::$connection->prepare("UPDATE `info_user` SET `name_user`= ? ,`phone`= ? ,`address`= ? ,`update_at`= current_date WHERE user_id = ?");
         $sql->bind_param('ssss', $name, $phone, $address, $user_id);
         return $sql->execute();
     }

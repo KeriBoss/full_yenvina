@@ -61,7 +61,7 @@ foreach($getCartByUserId as $item){
     <link rel="stylesheet" href="./css/stylecustom.css" />
 </head>
 
-<body>
+<body onload=onReady()>
     <div class="bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner"
@@ -84,10 +84,10 @@ foreach($getCartByUserId as $item){
                                 <div class="breadcrumb">
                                     <ol class="breadcrumb-shop p-0">
                                         <li>
-                                            <a class="active" href="/index.html"><span>Trang chủ</span></a>
+                                            <a class="active" href="index.php"><span>Trang chủ</span></a>
                                         </li>
                                         <li>
-                                            <a class="active" href="/index.html"><span>Thông tin giao hàng</span></a>
+                                            <a class="active" href="index.php"><span>Thông tin giao hàng</span></a>
                                         </li>
                                         <li>Giỏ hàng<span> (<?=$totalProduct?>)</span></li>
                                     </ol>
@@ -184,12 +184,29 @@ foreach($getCartByUserId as $item){
                                 <span><b>VND <?=number_format ($totalPrice)?></b></span>
                             </div>
                         </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div id="id_qrcode2"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Content end-->
     </div>
+    <script src="./js/qrcode.min.js"></script>
+    <script>
+        function onReady()
+		{
+			var qrcode = new QRCode("id_qrcode2", {
+				text:"https://translate.google.com/",
+				width:250,
+				height:250,
+				colorDark:"#000000",
+				colorLight:"#ffffff",
+				correctLevel:QRCode.CorrectLevel.L
+			});
+		}
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

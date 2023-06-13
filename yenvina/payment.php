@@ -72,7 +72,7 @@ if(count($getUserById) > 0){
     <link rel="stylesheet" href="./css/stylecustom.css" />
 </head>
 
-<body>
+<body onload=onReady()>
     <div class="bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner"
@@ -123,26 +123,6 @@ if(count($getUserById) > 0){
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control w-100" type="text" name="address" placeholder="Địa chỉ" value="<?php if(isset($_SESSION['user']['address'])){echo $_SESSION['user']['address'];} ?>" required>
-                                    </div>
-                                    <div class="form-group d-flex gap-3">
-                                        <select id="city" name="city" class="form-control">
-                                            <option value="">Select City</option>
-                                            <option value="Cần Giờ">Cần Giờ</option>
-                                            <option value="Củ Chi">Củ Chi</option>
-                                            <option value="Ho Chi Minh City">Ho Chi Minh City</option>
-                                        </select>
-                                        <select id="province" name="province" class="form-control">
-                                            <option value="">Select City</option>
-                                            <option value="Cần Giờ">Cần Giờ</option>
-                                            <option value="Củ Chi">Củ Chi</option>
-                                            <option value="Ho Chi Minh City">Ho Chi Minh City</option>
-                                        </select>
-                                        <select id="village" name="village" class="form-control">
-                                            <option value="">Select City</option>
-                                            <option value="Cần Giờ">Cần Giờ</option>
-                                            <option value="Củ Chi">Củ Chi</option>
-                                            <option value="Ho Chi Minh City">Ho Chi Minh City</option>
-                                        </select>
                                     </div>
                                     <div class="form-group d-flex align-items-center mt-4">
                                         <div class="w-100"><a href="./cart.php">Giỏ Hàng</a></div>
@@ -199,12 +179,29 @@ if(count($getUserById) > 0){
                                 <span><b>VND <?=number_format ($totalPrice)?></b></span>
                             </div>
                         </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div id="id_qrcode"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Content end-->
     </div>
+    <script src="./js/qrcode.min.js"></script>
+    <script>
+        function onReady()
+		{
+			var qrcode = new QRCode("id_qrcode", {
+				text:"https://translate.google.com/",
+				width:250,
+				height:250,
+				colorDark:"#000000",
+				colorLight:"#ffffff",
+				correctLevel:QRCode.CorrectLevel.L
+			});
+		}
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -226,6 +223,7 @@ if(count($getUserById) > 0){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="./js/script.js"></script>

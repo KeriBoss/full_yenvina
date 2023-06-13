@@ -13,5 +13,6 @@ try {
     $delete = $banner->delete($banner_id);
     header('location: ../../banner_list.php');
 } catch (Throwable $err) {
-    echo $err;
+    $_SESSION['error'] = "$err";
+    header('location: ../../404.php');
 }

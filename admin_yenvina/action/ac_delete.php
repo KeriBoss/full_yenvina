@@ -13,5 +13,6 @@ try {
     $delete = $products->delete($product_id);
     header('location: ../index.php');
 } catch (Throwable $err) {
-    echo $err;
+    $_SESSION['error'] = "$err";
+    header('location: ../404.php');
 }

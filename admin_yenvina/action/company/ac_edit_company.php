@@ -31,5 +31,6 @@ try {
     $update = $company->update($id, $company_name, $phone, $email, $address, $work_time, $description);
     header('location: ../../company_list.php');
 } catch (Throwable $err) {
-    echo $err;
+    $_SESSION['error'] = "$err";
+    header('location: ../../404.php');
 }

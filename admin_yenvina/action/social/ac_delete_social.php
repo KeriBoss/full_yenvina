@@ -14,5 +14,6 @@ try {
     $delete = $social->delete($social_id);
     header('location: ../../social_list.php');
 } catch (Throwable $err) {
-    echo $err;
+    $_SESSION['error'] = "$err";
+    header('location: ../../404.php');
 }

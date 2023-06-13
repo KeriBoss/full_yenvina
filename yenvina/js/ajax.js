@@ -15,7 +15,9 @@ const divTotalPrice = document.querySelector('.desc-right .costs b')
 
 let userId_table = document.querySelector('.modal-body table').dataset.user;
 const btnAddCart = document.querySelectorAll('.add-cart a');
-$(document).ready(function () {
+const iconAddCart = document.querySelectorAll('.add-cart .icon-cart');
+
+if(btnAddCart){
     btnAddCart.forEach(item => {
         item.onclick = (e) => {
             e.preventDefault();
@@ -25,6 +27,10 @@ $(document).ready(function () {
                 url: 'add_product_cart.php',
                 type: 'GET',
                 dataType: 'json',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }, 
                 data: {
                     product_id: id,
                     user_id: user_id
@@ -34,7 +40,33 @@ $(document).ready(function () {
             });
         }
     });
-})
+}
+if(iconAddCart){
+    iconAddCart.forEach(item => {
+        item.onclick = (e) => {
+            e.preventDefault();
+            let id = item.dataset.parent;
+            let user_id = item.dataset.user;
+            $.ajax({
+                url: 'add_product_cart.php',
+                type: 'GET',
+                dataType: 'json',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }, 
+                data: {
+                    product_id: id,
+                    user_id: user_id
+                }
+            }).done(function (reponse) {
+                showContentCart(reponse);
+            });
+        }
+    });
+}
+
+
 //QUantity
 
 function btnLowest(product_id, quantity) {
@@ -50,7 +82,6 @@ function btnLowest(product_id, quantity) {
                 quantity: preQuan
             }
         }).done(function (reponse) {
-            console.log(reponse);
             showContentCart(reponse);
         })
     }
@@ -159,8 +190,8 @@ const bodyComment = document.getElementById('comment_body');
 const contentComment = document.querySelector('.comment_content');
 
 const listComment = document.getElementById('list_comment');
+if(btnComment){
 
-$(document).ready(function () {
     btnComment.onclick = (e)=>{
         let product_id = bodyComment.dataset.product;
         let user_id = bodyComment.dataset.user;
@@ -213,4 +244,4 @@ $(document).ready(function () {
             });
         });
     }
-})
+}

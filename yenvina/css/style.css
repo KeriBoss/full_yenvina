@@ -127,7 +127,7 @@
 @media (max-width: 768px) {
     #header-carousel .carousel-item {
         position: relative;
-        min-height: 450px;
+        min-height: 300px;
     }
     
     #header-carousel .carousel-item img {
@@ -492,4 +492,9 @@
     margin-right: 0;
     padding-right: 0;
     border-right: none;
+}
+@media screen and (max-width: 414.98px) {
+    .payment{
+        padding: 0!important;
+    }
 }

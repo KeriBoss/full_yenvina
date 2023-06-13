@@ -32,8 +32,8 @@ class Articles extends Database{
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $date = getdate();
 
-        $sql = parent::$connection->prepare("UPDATE `articles` SET `title`= ? ,`content`= ? ,`user_id`= ? ,`topic_id`= ? ,`image`= ? ,`status`= ? ,`status_home`= ? , `update_at`= ?  WHERE `id` = ?");
-        $sql->bind_param('ssiisiidi', $title, $content, $user_id, $topic_id, $image, $status, $status_home,$date, $id);
+        $sql = parent::$connection->prepare("UPDATE `articles` SET `title`= ? ,`content`= ? ,`user_id`= ? ,`topic_id`= ? ,`image`= ? ,`status`= ? ,`status_home`= ? , `update_at`= current_date  WHERE `id` = ?");
+        $sql->bind_param('ssiisiii', $title, $content, $user_id, $topic_id, $image, $status, $status_home, $id);
         return $sql->execute();
     }
     /**

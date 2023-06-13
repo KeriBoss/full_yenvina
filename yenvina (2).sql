@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 09, 2023 lúc 08:15 AM
+-- Máy chủ: localhost
+-- Thời gian đã tạo: Th5 30, 2023 lúc 11:14 AM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.1.12
 
@@ -80,7 +80,9 @@ INSERT INTO `article_topic` (`id`, `topic_name`, `create_at`) VALUES
 (2, 'Sức Khỏe', '2023-05-03'),
 (3, 'Người Cao Tuổi', '2023-05-03'),
 (4, 'Trẻ Em', '2023-05-03'),
-(6, 'Sức khỏe 2', '2023-05-04');
+(6, 'Sức khỏe 2', '2023-05-04'),
+(7, 'Dinh dưỡng', '2023-05-23'),
+(8, 'Dinh dưỡng 2', '2023-05-23');
 
 -- --------------------------------------------------------
 
@@ -105,7 +107,7 @@ CREATE TABLE `banner` (
 --
 
 INSERT INTO `banner` (`id`, `heading`, `description`, `img_web`, `img_mobile`, `position`, `href`, `status`, `create_at`) VALUES
-(1, 'Banner header 2', 'Đây là mô tả siêu chi tiết của banner 2', 'banner-web-2.png', 'banner-mb-2.png', 2, 'https://thuongdinhyen.vn/', 1, '2023-05-02'),
+(1, 'Banner header 2', 'Mô tả chi tiết banner 2', 'banner-web-2.png', 'banner-mb-2.png', 2, 'https://thuongdinhyen.vn/', 1, '2023-05-02'),
 (2, 'Banner header 1', 'Đây là banner no.1', 'banner-web-1.png', 'banner-mb-1.png', 1, 'https://thuongdinhyen.vn/', 1, '0000-00-00');
 
 -- --------------------------------------------------------
@@ -140,7 +142,10 @@ INSERT INTO `cart` (`id_cart`, `product_id`, `user_id`, `quantity`, `code`, `cre
 (53, 21, '080520231127', 1, 'keri162743', '2023-05-08', '0000-00-00'),
 (54, 22, '090520230310', 1, 'keri081114', '2023-05-09', '0000-00-00'),
 (55, 21, '090520230312', 1, 'keri082101', '2023-05-09', '0000-00-00'),
-(56, 21, '090520230339', 2, 'keri083919', '2023-05-09', '2023-05-09');
+(56, 21, '090520230339', 2, 'keri083919', '2023-05-09', '2023-05-09'),
+(57, 21, '190520231034', 1, 'keri153900', '2023-05-19', '2023-05-19'),
+(58, 21, '260520230320', 1, 'keri082101', '2023-05-26', '2023-05-26'),
+(59, 21, '290520230856', 1, 'keri135626', '2023-05-29', '2023-05-29');
 
 -- --------------------------------------------------------
 
@@ -221,7 +226,8 @@ INSERT INTO `info_user` (`info_id`, `user_id`, `name_user`, `phone`, `address`, 
 (13, '080520231116', 'test tow', '0359893447', 'Ninh Thuan province', '2023-05-08', '2023-05-09'),
 (14, '080520231124', 'Le LAM', '0359893447', 'Ninh Thuan province', '2023-05-08', '0000-00-00'),
 (15, '080520231127', 'Le LAM', '3213312321', 'thôn Văn Hòa, xã Vĩnh Phúc, tỉnh Lào Cai', '2023-05-08', '2023-05-08'),
-(16, '090520230310', 'new bi', '0359893447', 'Ninh Thuan province', '2023-05-09', '0000-00-00');
+(16, '090520230310', 'new bi', '0359893447', 'Ninh Thuan province', '2023-05-09', '0000-00-00'),
+(17, '290520230856', 'asdsad', '0123456789', 'addsd', '2023-05-29', '2023-05-29');
 
 -- --------------------------------------------------------
 
@@ -248,7 +254,9 @@ INSERT INTO `payment` (`id`, `user_id`, `transport`, `type_payment`, `total_pric
 (3, '080520230311', 'Phí ship dựa trên kilomet thực nhận', 'Thanh toán khi nhận hàng', 14327300, '2023-05-08'),
 (4, '080520230311', 'Phí ship dựa trên quãng đường đi được', 'Thanh toán khi nhận hàng', 8136000, '2023-05-08'),
 (6, '080520231116', 'Phí ship dựa trên kilomet thực nhận', 'Thanh toán khi nhận hàng', 12252900, '2023-05-09'),
-(7, '080520231023', 'Phí ship dựa trên quãng đường đi được', 'Thanh toán khi nhận hàng', 14382900, '2023-05-09');
+(7, '080520231023', 'Phí ship dựa trên quãng đường đi được', 'Thanh toán khi nhận hàng', 14382900, '2023-05-09'),
+(8, '290520230856', 'Phí ship dựa trên kilomet thực nhận', 'Thanh toán khi nhận hàng', 4084300, '2023-05-29'),
+(9, '290520230856', 'Phí ship dựa trên kilomet thực nhận', 'Thanh toán khi nhận hàng', 4084300, '2023-05-29');
 
 -- --------------------------------------------------------
 
@@ -286,7 +294,6 @@ INSERT INTO `products` (`id`, `product_name`, `prices`, `quantity`, `sale`, `thu
 (9, 'Tổ yến “thượng hạng”', 290000, 115, 0, 'to_yen_2.png', '50gram', 1, 5, 1, NULL, NULL),
 (10, 'Yến chưng Trung Quốc chất lượng cao', 3100000, 297, 5, 'to_yen_1.png', '50gram', 2, 4, 1, NULL, NULL),
 (11, 'Tổ yến nơi thiên đường', 5150000, 999, 9, 'to_yen_1.png', '50gram', 1, 5, 1, NULL, NULL),
-(12, 'Tổ yến “thượng hạng”', 290000, 115, 0, 'to_yen_1.png', '50gram', 1, 5, 1, NULL, NULL),
 (13, 'Tổ yến “thượng hạng”', 290000, 115, 0, 'to_yen_1.png', '50gram', 1, 5, 1, NULL, NULL),
 (14, 'Yến chưng chất lượng cao', 3100000, 297, 5, 'to_yen_1.png', '50gram', 9, 4, 1, NULL, NULL),
 (15, 'Tổ yến nơi thiên đường', 5150000, 999, 9, 'to_yen_2.png', '50gram', 9, 5, 1, NULL, NULL),
@@ -295,7 +302,7 @@ INSERT INTO `products` (`id`, `product_name`, `prices`, `quantity`, `sale`, `thu
 (21, 'Yen sao chung cat', 5170000, 412, 21, 'to_yen_1.png', '50gram', 3, 5, 1, NULL, NULL),
 (22, 'Tổ yến vip loại 3', 2140000, 27, 5, 'Pancake hạnh nhân đậu đỏ.jpg', '50gram', 1, 5, 1, NULL, NULL),
 (23, 'Tổ yến vip loại 4', 2130000, 213, 0, '3bbaeb04-eba4-4657-9388-b327bd42008e.png', '50gram', 3, 0, 1, NULL, NULL),
-(24, 'Yen sao chung cat', 310000, 6, 1, 'img_item_hcoll_products_5_small (5).png', '50gram', 3, 0, 1, NULL, NULL);
+(24, 'Yen sao chung cat', 330000, 10, 2, 'img_item_hcoll_products_5_small (5).png', '50gram', 3, 0, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -322,7 +329,8 @@ INSERT INTO `social` (`id`, `social_name`, `description`, `href`, `icon`, `statu
 (4, 'Youtube', 'Tập hợp các phim hành động, đấu kiếm đỉnh cao', 'https://www.youtube.com', 'bxl-youtube', 1, '2023-05-03'),
 (5, 'Bing', 'Bing chí lỉn', 'https://thuongdinhyen.vn/', 'bxl-bing', 0, '2023-05-03'),
 (6, 'Twitter', 'lorem', 'https://thuongdinhyen.vn/', 'bxl-twitter', 1, '2023-05-03'),
-(7, 'Tiktok', 'Tiktok', 'https://tiktok.com/', 'bxl-tiktok', 0, '2023-05-08');
+(7, 'Tiktok', 'Tiktok', 'https://tiktok.com/', 'bxl-tiktok', 0, '2023-05-08'),
+(8, 'Priterest', 'Hình ảnh', 'https://thuongdinhyen.vn/', 'bxl-pinterest', 0, '2023-05-23');
 
 -- --------------------------------------------------------
 
@@ -347,7 +355,7 @@ INSERT INTO `type_product` (`type_id`, `type_name`, `image`, `position`, `descri
 (2, 'Soup', 'img_item_hcoll_products_5_small (7).png', 4, ''),
 (3, 'Fer Valley', 'img_item_hcoll_products_6_small.png', 5, ''),
 (9, 'Yến chưng sẵn', 'img_item_hcoll_products_5_small (5).png', 1, ''),
-(10, 'Yến khô', 'img_item_hcoll_products_5_small (6).png', 2, 'Một trong những loại yến được thịnh hành nhất hiện nay.');
+(10, 'Yến khô', 'img_item_hcoll_products_5_small (6).png', 2, 'Một trong những loại yến thịnh hành và được nhiều người sử dụng nhất hiện nay.');
 
 -- --------------------------------------------------------
 
@@ -498,7 +506,7 @@ ALTER TABLE `articles`
 -- AUTO_INCREMENT cho bảng `article_topic`
 --
 ALTER TABLE `article_topic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `banner`
@@ -510,7 +518,7 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT cho bảng `comment`
@@ -528,13 +536,13 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT cho bảng `info_user`
 --
 ALTER TABLE `info_user`
-  MODIFY `info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT cho bảng `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
@@ -546,7 +554,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT cho bảng `social`
 --
 ALTER TABLE `social`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `type_product`

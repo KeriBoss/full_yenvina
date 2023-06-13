@@ -21,7 +21,7 @@ class Cart extends Database{
      */
     function insert($product_id, $user_id, $quantity){
         date_default_timezone_set('Asia/Ho_Chi_Minh');
-        $sql = parent::$connection->prepare("INSERT INTO `cart`(`product_id`, `user_id`, `quantity`, `code`) VALUES (?, ?, ?, ?)");
+        $sql = parent::$connection->prepare("INSERT INTO `cart`(`product_id`, `user_id`, `quantity`, `code`,`update_at`) VALUES (?, ?, ?, ?, current_date)");
         $time = date("H:i:s");
         $str = preg_replace('/[^a-zA-Z0-9_ %\[\]\.\(\)%&-]/s', '', $time);
         $code = 'keri' . $str;

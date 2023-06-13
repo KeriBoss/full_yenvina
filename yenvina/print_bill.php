@@ -72,7 +72,7 @@ $getUserById = $user->getUserById($user_id);
     <link rel="stylesheet" href="css/popup.css">
 </head>
 
-<body>
+<body onload=onReady()>
     <div class="bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner"
@@ -191,12 +191,29 @@ $getUserById = $user->getUserById($user_id);
                                 <span><b>VND <?=number_format ($totalPrice)?></b></span>
                             </div>
                         </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div id="id_qrcode"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Content end-->
     </div>
+    <script src="./js/qrcode.min.js"></script>
+    <script>
+        function onReady()
+		{
+			var qrcode = new QRCode("id_qrcode", {
+				text:"https://translate.google.com/",
+				width:250,
+				height:250,
+				colorDark:"#000000",
+				colorLight:"#ffffff",
+				correctLevel:QRCode.CorrectLevel.L
+			});
+		}
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

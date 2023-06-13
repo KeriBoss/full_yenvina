@@ -41,7 +41,7 @@ $getAllTopic = $topic->getAllTopic();
                                 <td><?= $item['topic_name'] ?></td>
                                 <td><?= date("d-m-Y",strtotime($item['create_at']))?></td>
                                 <td><a href="./edit_topic.php?id=<?=$item['id'];?>" class="btn btn-primary">Edit</a></td>
-                                <td><a onclick="if(CheckForm() == false) return false" href="../../action/article_topic/ac_delete_topic.php?id=<?=$item['id'];?>" class="btn btn-danger">Delete</a></td>
+                                <td><a onclick="if(CheckForm() == false) return false" href="action/article_topic/ac_delete_topic.php?id=<?=$item['id'];?>" class="btn btn-danger">Delete</a></td>
                             </tr>
                         <?php } ?>
                     </tbody>

@@ -52,7 +52,7 @@ $allTypeProduct = $typeProduct->getAllTypeProduct();
                                             <td><?=$item['position']?></td>
                                             <td><?=$item['description']?></td>
                                             <td><a href="./edit_protype.php?type_id=<?=$item['type_id'];?>" class="btn btn-primary">Edit</a></td>
-                                            <td><a onclick="if(CheckForm() == false) return false" href="../../action/protype/ac_delete_protype.php?type_id=<?=$item['type_id'];?>" class="btn btn-danger">Delete</a></td>
+                                            <td><a onclick="if(CheckForm() == false) return false" href="action/protype/ac_delete_protype.php?type_id=<?=$item['type_id'];?>" class="btn btn-danger">Delete</a></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>

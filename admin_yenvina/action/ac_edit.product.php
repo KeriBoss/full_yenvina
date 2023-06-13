@@ -5,7 +5,7 @@ require_once "../../model/database.php";
 require_once  "../../model/product.php";
 
 
-$target_dir =  "../../yenvina/img/product";
+$target_dir =  "../../yenvina/img/product/";
 
 $target_name_file = basename($_FILES["thumbnail"]["name"]);
 
@@ -88,5 +88,6 @@ try {
     $insert = $products->update($id_product , $product_name, $prices, $quantity, $sale, $thumbnail, $type_id);
     header('location: ../index.php');
 } catch (Throwable $err) {
-    echo $err;
+    $_SESSION['error'] = "$err";
+    header('location: ../404.php');
 }

@@ -4,7 +4,7 @@ require_once  "../../model/config.php";
 require_once "../../model/database.php";
 require_once  "../../model/product.php";
 
-$target_dir =   "../../yenvina/img/product";
+$target_dir =   "../../yenvina/img/product/";
 $target_file = $target_dir . basename($_FILES["thumbnail"]["name"]);
 // var_dump($target_file);die();
 $uploadOk = 1;
@@ -75,5 +75,6 @@ try {
     $insert = $products->insert($product_name, $prices, $quantity, $sale, $thumbnail, $type_id);
     header('location: ../index.php');
 } catch (Throwable $err) {
-    echo $err;
+    $_SESSION['error'] = "$err";
+    header('location: ../404.php');
 }

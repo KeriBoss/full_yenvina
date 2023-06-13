@@ -44,7 +44,10 @@ const hour = document.querySelector('.time-delay .hour');//Get hour
 const minute = document.querySelector('.time-delay .minute');//Get minute
 const second = document.querySelector('.time-delay .second');//Get second
 
-let timedelay = time.dataset.time;
+let timedelay;
+if(time){
+    timedelay = time.dataset.time;
+}
 let temphour = Math.floor(timedelay / 3600);
 let tempMinute = Math.floor((timedelay % 3600) / 60);
 let tempSecond = Math.floor(((timedelay % 3600) % 60));
@@ -59,9 +62,11 @@ let dateSale = setInterval(()=>{
         temphour = temphour - 1;
         tempMinute = 59;
     }
-    hour.textContent = temphour;
-    minute.textContent = tempMinute;
-    second.textContent = tempSecond;
+    if(hour && minute && second){
+        hour.textContent = temphour;
+        minute.textContent = tempMinute;
+        second.textContent = tempSecond;
+    }
 },1000)
 
 

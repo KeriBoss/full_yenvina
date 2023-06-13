@@ -22,8 +22,9 @@ foreach($getCartByUserId as $item){
     $totalProduct += $item['quantity']*1;
 }
 
-
-
+if(isset($_SESSION['payment']['success'])){
+    unset($_SESSION['payment']['success']);
+}
 // $refRootModel = $_SERVER["DOCUMENT_ROOT"].'/yenvina';
 
 $protype = new Typeproduct();
@@ -43,7 +44,7 @@ $product = new Product();
     <meta content="" name="description" />
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon" />
+    <link href="img/logo.png" rel="icon" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -105,13 +106,10 @@ $product = new Product();
                             </form>
                             <div class="nav-product">
                                 <ul>
-                                    <li><a href="./product.php">Thượng Vy Yến Biển</a></li>
-                                    <span class="mx-1"> | </span>
-                                    <li><a href="./product.php">Yến chưng tươi</a></li>
-                                    <span class="mx-1"> | </span>
-                                    <li><a href="./product.php">Thượng Vy Yến Biển</a></li>
-                                    <span class="mx-1"> | </span>
-                                    <li><a href="./product.php">Thượng Vy Yến Biển</a></li>
+                                    <?php foreach($getAllTypeProduct as $item){ ?>
+                                        <li><a href="./product.php?type=<?=$item['type_id']?>"><?=$item['type_name']?></a></li>
+                                        <span class="mx-1"> | </span>
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </div>
@@ -151,10 +149,10 @@ $product = new Product();
                     <div class="header-bottom row d-flex justify-content-center align-items-center">
                         <div class="col-lg-3 p-0">
                             <div class="list-product d-flex align-items-center">
-                                <i class="bx bx-menu"></i>
+                                
                                 <div class="nav-item dropdown">
-                                    <a href="./product.php" class="nav-link dropdown-toggle cl-black"
-                                        data-bs-toggle="dropdown">Danh mục sản phẩm</a>
+                                    <a id="menu-owner" href="./product.php" class="nav-link dropdown-toggle cl-black"
+                                        data-bs-toggle="dropdown"><i class="bx bx-menu"></i>Danh mục sản phẩm</a>
                                     <div class="dropdown-menu rounded-0 m-0">
                                         <?php foreach($getAllTypeProduct as $item){ ?>
                                         <a href="./product.php?type=<?=$item['type_id']?>" class="dropdown-item"><?=$item['type_name']?></a>

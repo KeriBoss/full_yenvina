@@ -50,13 +50,19 @@ $getAllTopic = $topic->getAllTopic();
                                         foreach($getAllArticle as $item){ ?>
                                         <tr>
                                             <td><?= $count++; ?></td>
-                                            <td><?=$item['title']?></td>
-                                            <td><?=$item['content']?></td>
+                                            <td>
+                                                <div class="line-clamp">
+                                                    <?=$item['title']?>
+                                                </div></td>
+                                            </td>
+                                            <td><div class="line-clamp">
+                                                <?=$item['content']?>
+                                            </div></td>
                                             <?php
                                                 foreach($getAllTopic as $data){
                                                     if($data['id'] == $item['topic_id']){
                                             ?>
-                                                        <td><?=$data['topic_name']?></td>
+                                                    <td><?=$data['topic_name']?></td>
                                             <?php }} ?>
                                             <td>
                                                 <img height="150" width="auto" src="<?=$urlImg?>/img/article/<?=$item['image']?>" style="object-fit: cover;" alt="Img article">
@@ -72,7 +78,7 @@ $getAllTopic = $topic->getAllTopic();
                                                 } else{ echo "Có"; }?>
                                             </td>
                                             <td><a href="./edit_article.php?article_id=<?=$item['id'];?>" class="btn btn-primary">Edit</a></td>
-                                            <td><a onclick="if(CheckForm() == false) return false" href="../../action/articles/ac_delete_article.php?article_id=<?=$item['id'];?>" class="btn btn-danger">Delete</a></td>
+                                            <td><a onclick="if(CheckForm() == false) return false" href="action/articles/ac_delete_article.php?article_id=<?=$item['id'];?>" class="btn btn-danger">Delete</a></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>

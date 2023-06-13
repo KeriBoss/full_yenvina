@@ -73,7 +73,7 @@ $allTypeProduct = $typeProduct->getAllTypeProduct();
                                             <?php }} ?>
                                             <td><?=$item['rating']?></td>
                                             <td><a href="./edit_product.php?product_id=<?=$item['id'];?>" class="btn btn-primary">Edit</a></td>
-                                            <td><a onclick="if(CheckForm() == false) return false" href="././action/ac_delete.php?product_id=<?=$item['id'];?>" class="btn btn-danger">Delete</a></td>
+                                            <td><a onclick="if(CheckForm() == false) return false" href="action/ac_delete.php?product_id=<?=$item['id'];?>" class="btn btn-danger">Delete</a></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>

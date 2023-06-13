@@ -214,13 +214,14 @@ $getSocialHomePage = $social->getSocialHomePage();
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
         <script src="./js/script.js"></script>
         <script src="./js/mainJquery.js"></script>
         <script src="./js/ajax.js"></script>
     <script>
-       var splide = new Splide( '#main-slider', {
+       new Splide( '#main-slider', {
         pagination: false,
         } );
 
@@ -248,9 +249,7 @@ $getSocialHomePage = $social->getSocialHomePage();
             thumbnail.classList.add( 'is-active' );
             current = thumbnail;
         }
-        } );
-
-        splide.mount();
+        } ).mount();
     </script>
     <script>
         let navtabs = document.querySelectorAll('.information .sliderTab');

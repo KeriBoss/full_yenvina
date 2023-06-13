@@ -65,7 +65,7 @@ $urlImg =  '../yenvina';
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
-                    <img src="public/img/logo" class="img-fluid" alt="Logo">
+                    <img src="public/img/logo.png" class="img-fluid" alt="Logo">
                 </div>
                 <div class="sidebar-brand-text mx-3">Admin Yenvina</div>
             </a>

@@ -62,17 +62,19 @@ $getArticleHomePage = $article->getArticleHomePage();
             </div>
             <div class="line-under mb-4"></div>
             <div class="list-future">
-                <ul>
-                    <?php foreach($getAllTypeProduct as $item){ ?>
-                        <li class="item text-center" style="order: <?=$item['position']?>;">
-                            <a href="./product.php?type=<?=$item['type_id']?>">
-                                <img class="img-fluid" src="img/protype/<?=$item['image']?>"
-                                    alt="<?=$item['image']?>" />
-                                <p><?=$item['type_name']?></p>
-                            </a>
-                        </li>
-                    <?php } ?>
-                </ul>
+                <div class="list">
+                    <ul>
+                        <?php foreach($getAllTypeProduct as $item){ ?>
+                            <li class="item text-center" style="order: <?=$item['position']?>;">
+                                <a href="./product.php?type=<?=$item['type_id']?>">
+                                    <img class="img-fluid" src="img/protype/<?=$item['image']?>"
+                                        alt="<?=$item['image']?>" />
+                                    <p><?=$item['type_name']?></p>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                </div>
             </div>
         </section>
         <!-- Future products end-->
@@ -97,7 +99,7 @@ $getArticleHomePage = $article->getArticleHomePage();
                     </div>
                     <div class="col-lg-6 col-md-12 col-12">
                         <div class="show-all">
-                            <a href="./product.php">Xem tat ca</a>
+                            <a href="./product.php">Xem tất cả</a>
                         </div>
                     </div>
                 </div>
@@ -209,9 +211,8 @@ $getArticleHomePage = $article->getArticleHomePage();
                                     </div>
                                     <div class="d-flex justify-content-center align-items-center">
                                         <div class="add-cart" style="cursor: pointer;">
-                                        <a data-toggle="modal" data-target="#popupAddCart" data-parent="<?=$data['id']?>" data-user="<?=$_SESSION['user']['temp']?>"><span>Add to
-                                                    cart</span></a>
-                                            <div class="icon-cart"><i class='bx bx-cart'></i></div>
+                                            <a data-toggle="modal" data-target="#popupAddCart" data-parent="<?=$data['id']?>" data-user="<?=$_SESSION['user']['temp']?>"><span>Thêm Vào Giỏ</span></a>
+                                            <div class="icon-cart" data-toggle="modal" data-target="#popupAddCart" data-parent="<?=$data['id']?>" data-user="<?=$_SESSION['user']['temp']?>"><i class='bx bx-cart'></i></div>
                                         </div>
                                     </div>
                                 </div>
@@ -287,9 +288,8 @@ $getArticleHomePage = $article->getArticleHomePage();
                                     </div>
                                     <div class="d-flex justify-content-center align-items-center">
                                         <div class="add-cart" style="cursor: pointer;">
-                                            <a data-toggle="modal" data-target="#popupAddCart" data-parent="<?=$data['id']?>" data-user="<?=$_SESSION['user']['temp']?>"><span>Add to
-                                                    cart</span></a>
-                                            <div class="icon-cart"><i class='bx bx-cart'></i></div>
+                                            <a data-toggle="modal" data-target="#popupAddCart" data-parent="<?=$data['id']?>" data-user="<?=$_SESSION['user']['temp']?>"><span>Thêm Vào Giỏ</span></a>
+                                            <div class="icon-cart" data-toggle="modal" data-target="#popupAddCart" data-parent="<?=$data['id']?>" data-user="<?=$_SESSION['user']['temp']?>"><i class='bx bx-cart'></i></div>
                                         </div>
                                     </div>
                                 </div>

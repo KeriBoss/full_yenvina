@@ -5,7 +5,7 @@ require_once  "../../../model/config.php";
 require_once "../../../model/database.php";
 require_once  "../../../model/type_product.php";
 
-$target_dir =  "../../../yenvina/img/protype";
+$target_dir =  "../../../yenvina/img/protype/";
 $target_name_file = basename($_FILES["image"]["name"]);
 
 if($target_name_file == ''){
@@ -74,5 +74,6 @@ try {
     $insert = $protype->update($type_id, $type_name, $image, $position, $description);
     header('location: ../../protype_list.php');
 } catch (Throwable $err) {
-    echo $err;
+    $_SESSION['error'] = "$err";
+    header('location: ../../404.php');
 }

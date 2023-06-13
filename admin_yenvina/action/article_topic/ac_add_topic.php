@@ -13,5 +13,6 @@ try {
     $insert = $article_topic->insert($topic_name);
     header('location: ../../topic_list.php');
 } catch (Throwable $err) {
-    echo $err;
+    $_SESSION['error'] = "$err";
+    header('location: ../../404.php');
 }

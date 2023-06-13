@@ -14,5 +14,6 @@ try {
     $delete = $protype->delete($type_id);
     header('location: ../../protype_list.php');
 } catch (Throwable $err) {
-    echo $err;
+    $_SESSION['error'] = "$err";
+    header('location: ../../404.php');
 }

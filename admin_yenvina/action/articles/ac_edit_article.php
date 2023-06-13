@@ -5,7 +5,7 @@ require_once  "../../../model/config.php";
 require_once "../../../model/database.php";
 require_once  "../../../model/articles.php";
 
-$target_dir =  "../../../yenvina/img/article";
+$target_dir =  "../../../yenvina/img/article/";
 $target_name_file = basename($_FILES["image"]["name"]);
 
 if($target_name_file == ''){
@@ -84,5 +84,6 @@ try {
     $update = $article->update($article_id, $title, $content, $user_id, $topic_id , $image, $status, $status_home);
     header('location: ../../article_list.php');
 } catch (Throwable $err) {
-    echo $err;
+    $_SESSION['error'] = "$err";
+    header('location: ../../404.php');
 }

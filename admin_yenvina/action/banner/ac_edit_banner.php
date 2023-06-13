@@ -5,7 +5,7 @@ require_once  "../../../model/config.php";
 require_once "../../../model/database.php";
 require_once  "../../../model/banner.php";
 
-$target_dir =  "../../../yenvina/img/banner";
+$target_dir =  "../../../yenvina/img/banner/";
 
 //TODO: Img for website
 $target_name_file_web = basename($_FILES["img_web"]["name"]);
@@ -126,5 +126,6 @@ try {
     $insert = $banner->update($banner_id, $heading, $description, $img_web, $img_mobile, $position, $href);
     header('location: ../../banner_list.php');
 } catch (Throwable $err) {
-    echo $err;
+    $_SESSION['error'] = "$err";
+    header('location: ../../404.php');
 }

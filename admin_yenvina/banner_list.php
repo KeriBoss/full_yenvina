@@ -57,7 +57,7 @@ $getAllBanner = $banner->getAllBanner();
                                             <td><?=$item['position']?></td>
                                             <td><?=$item['href']?></td>
                                             <td><a href="./edit_banner.php?banner_id=<?=$item['id'];?>" class="btn btn-primary">Edit</a></td>
-                                            <td><a onclick="if(CheckForm() == false) return false" href="../../action/banner/ac_delete_banner.php?banner_id=<?=$item['id'];?>" class="btn btn-danger">Delete</a></td>
+                                            <td><a onclick="if(CheckForm() == false) return false" href="action/banner/ac_delete_banner.php?banner_id=<?=$item['id'];?>" class="btn btn-danger">Delete</a></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>

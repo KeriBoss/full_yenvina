@@ -14,5 +14,6 @@ try {
     $delete = $article_topic->delete($id);
     header('location: ../../topic_list.php');
 } catch (Throwable $err) {
-    echo $err;
+    $_SESSION['error'] = "$err";
+    header('location: ../../404.php');
 }
