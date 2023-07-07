@@ -12,7 +12,7 @@ include_once "./header.php";
                 <div class="group-btn">
                     <div class="btn-tablink"><button type="submit">Đăng nhập</button></div>
                     <div class="func-orther">
-                        <div class="forget"><a href="./forget.php">Quên mật khẩu</a></div>
+                        <div class="forget"><a>Quên mật khẩu</a></div>
                         <div class="signin"><span> hoặc </span><a href="./register.php"> Đăng ký</a></div>
                     </div>
                 </div>

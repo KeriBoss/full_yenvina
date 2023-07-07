@@ -185,21 +185,10 @@ $getCommentByProduct = $comment->getCommentByProduct($product_id);
             <div class="sku-code">SKU: <span>TC152</span></div>
             <div class="product-info">
                 <span>Thương hiệu: <b>Yến ViNa</b></span>
-                <span>Tình trạng:
-                    <?php if ($getProductById[0]['quantity'] > 0) {
-                        echo "<b>Còn hàng</b>";
-                    } else {
-                        echo "<b>Hết hàng</b>";
-                    } ?>
-                </span>
-                <span>Đã bán: <b> 6 </b> sản phẩm.</span>
                 <span class="pro-star">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    12 đánh giá
+                    <?php for($i = 0; $i < $getProductById[0]['rating']; $i++){ ?>
+                        <i class="bx bxs-star"></i>
+                    <?php } echo count($getCommentByProduct); ?> đánh giá
                 </span>
             </div>
         </div>
@@ -233,8 +222,8 @@ $getCommentByProduct = $comment->getCommentByProduct($product_id);
                                     <div class="group-form prices mb-3">
                                         <input type="number" name="price" value="<?= $getProductById[0]['prices'] ?>" hidden />
                                         <input type="number" value="2120000" hidden />
-                                        <b><?= number_format($getProductById[0]['prices'] - (($getProductById[0]['prices'] * $getProductById[0]['sale']) / 100)) ?></b>
-                                        <i><?= $getProductById[0]['prices'] ?></i>
+                                        <b><?= number_format($getProductById[0]['prices'] - (($getProductById[0]['prices'] * $getProductById[0]['sale']) / 100)) ?> VNĐ</b>
+                                        <i><?= $getProductById[0]['prices'] ?> VNĐ</i>
                                         <span class="sale">-<?= $getProductById[0]['sale'] ?>%</span>
                                     </div>
                                     <div class="range">
@@ -478,16 +467,15 @@ $getCommentByProduct = $comment->getCommentByProduct($product_id);
                             ?>
                             </div>
                             <div class="box-prices">
-                                <span class="current-price"><?= number_format($data['prices'] - (($data['prices'] * $data['sale']) / 100)) ?>vnd</span>
+                                <span class="current-price"><?= number_format($data['prices'] - (($data['prices'] * $data['sale']) / 100)) ?> VNĐ</span>
                                 <span class="del-price <?php if($data['sale'] == 0){echo "d-none";} ?>">
-                                    <del> <?= number_format($data['prices']) ?> vnd</del>
+                                    <del> <?= number_format($data['prices']) ?>  VNĐ</del>
                                 </span>
                                 
                             </div>
                             <div class="d-flex justify-content-center align-items-center">
                                 <div class="add-cart" style="cursor: pointer;">
-                                    <a data-toggle="modal" data-target="#popupAddCart" data-parent="<?=$data['id']?>" data-user="<?=$_SESSION['user']['temp']?>"><span>Add to
-                                            cart</span></a>
+                                    <a data-toggle="modal" data-target="#popupAddCart" data-parent="<?=$data['id']?>" data-user="<?=$_SESSION['user']['temp']?>"><span>Thêm vào giỏ</span></a>
                                     <div class="icon-cart"><i class='bx bx-cart'></i></div>
                                 </div>
                             </div>

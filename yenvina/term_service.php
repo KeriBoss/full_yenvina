@@ -8,10 +8,10 @@ include_once "./header.php";
                 <div class="col-12">
                     <ol class="breadcrumb-shop p-0">
                         <li>
-                            <a href="/index.html"><span>Trang chủ</span></a>
+                            <a href="./index.php"><span>Trang chủ</span></a>
                         </li>
                         <li>
-                            <a href="/index.html"><span>Điều khoản dịch vụ</span></a>
+                            <a href="./term_service.php"><span>Điều khoản dịch vụ</span></a>
                         </li>
                     </ol>
                 </div>
@@ -45,7 +45,7 @@ include_once "./header.php";
                     <img src="https://file.hstatic.net/200000404397/file/z3349407534818_a8f5b1885d236c2141751cb83dc29be2_0da0bd47ebc949498c4e6a55b53e96b9_grande.jpg" alt="Terms">
                 </div>
                 <strong class="ways">Bước 3: Tạm biệt chủ sản phẩm</strong>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto hic porro nostrum praesentium.</p>
+                <p>Bạn có thể truy cập website để tìm và chọn sản phẩm muốn mua bằng nhiều cách:</p>
                 <div class="d-flex justify-content-center my-3">
                     <img src="https://file.hstatic.net/200000404397/file/z3349407534818_a8f5b1885d236c2141751cb83dc29be2_0da0bd47ebc949498c4e6a55b53e96b9_grande.jpg" alt="Terms">
                 </div>

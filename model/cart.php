@@ -67,4 +67,12 @@ class Cart extends Database{
         $sql = parent::$connection->prepare("SELECT * FROM cart ORDER BY `id_cart` DESC");
         return parent::select($sql);
     }
+    /**
+     * Delete cart by user id
+     */
+    function deleteByUser($user_id){
+        $sql = parent::$connection->prepare("DELETE FROM `cart` WHERE `user_id` = ?");
+        $sql->bind_param('i', $user_id);
+        return $sql->execute();
+    }
 }

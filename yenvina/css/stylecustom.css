@@ -43,8 +43,8 @@ header {
 }
 
 header .logo img {
-    width: 140px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     object-fit: cover;
 }
 
@@ -98,7 +98,7 @@ header .group-user {
 
 header .group-user .user {
     font-size: 2.2em;
-    margin-right: 18px;
+    margin-left: 18px;
 }
 
 header .group-user .search-mobile {
@@ -191,7 +191,7 @@ header .header-top .menu-bar {
     }
 }
 
-@media (max-width: 1199.98px) {
+@media (max-width: 1399.98px) {
     header .header-top .col-lg-7 {
         flex: 0 0 auto;
         width: 50.33333%;
@@ -325,7 +325,7 @@ header .nav-bar.active {
     } */
 
     header .header-top .col-lg-2:nth-child(1) {
-        width: 69.66%;
+        width: 65.66%;
     }
 
     header .nav-bar.active {
@@ -335,8 +335,8 @@ header .nav-bar.active {
 
 @media screen and (max-width: 414.98px) {
     header .logo img {
-        width: 120px;
-        height: 85px;
+        width: 100px;
+        height: 100px;
         object-fit: cover;
     }
 }
@@ -592,11 +592,13 @@ footer .footer-bottom .footer-wp a {
     font-size: 1.5em;
     color: var(--white);
     background: var(--red);
-    padding: 5px 15px;
+    padding: 5px;
+    margin: 10px;
     letter-spacing: .2em;
     font-style: italic;
     font-weight: 600;
     text-transform: uppercase;
+    border-radius: 8px;
 }
 
 #flash-sale .flash-header .title i {
@@ -658,6 +660,7 @@ footer .footer-bottom .footer-wp a {
 #flash-sale .flash-slider .splide__list .splide__slide img {
     width: 100%;
     max-height: 270px;
+    height: 270px;
     object-fit: cover;
     transition: transform .5s, filter .5s;
 }
@@ -688,7 +691,7 @@ footer .footer-bottom .footer-wp a {
 @media (max-width: 414.99px) {
     #flash-sale .flash-header .title {
         font-size: .9em;
-        padding: 17px;
+        /* padding: 17px; */
     }
 }
 
@@ -882,8 +885,8 @@ footer .footer-bottom .footer-wp a {
     right: 0;
     background: var(--white);
     width: 42px;
-    height: 98%;
-    transform: translate(-1%, 1%);
+    height: 100%;
+    transform: translate(3%, 0%);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -900,7 +903,6 @@ footer .footer-bottom .footer-wp a {
 
 .partner img {
     width: 100%;
-    height: 365px;
     max-height: 365px;
     object-fit: cover;
 }
@@ -1012,9 +1014,6 @@ footer .footer-bottom .footer-wp a {
         display: none;
     }
 
-    .product .product-header a.menu-right {
-        display: block !important;
-    }
 
     .newspaper {
         width: 100%;
@@ -1479,12 +1478,18 @@ footer .footer-bottom .footer-wp a {
 .sliderTab{
     font-size: 20px;
 }
+.sliderTab .content-tabs h1{
+    font-size: 24px;
+}
 @media (max-width: 414.98px) {
     .sliderTab .nav-tabs li{
-        font-size: .7em;
+        font-size: .5em;
     }
     .sliderTab .content-tabs{
         font-size: .7em;
+    }
+    .sliderTab .content-tabs h1{
+        font-size: initial;
     }
 }
 .modal .model-wh{
@@ -1546,6 +1551,18 @@ footer .footer-bottom .footer-wp a {
     border: 1px solid var(--gray);
 }
 
+@media screen and (max-width: 414.98px) {
+    .modal-body table tr .range input[type=button]
+    {
+        width: 15px;
+    }
+    .modal-body table tr .range input[type=text]{
+        width: 20px;
+    }
+    .table>:not(caption)>*>*{
+        padding: 0.5rem 0.1rem;
+    }
+}
 /*------------------Cart custom------------------------*/
 .carts{
     font-size: 20px;
@@ -2194,8 +2211,11 @@ footer .footer-bottom .footer-wp a {
 #about .article-slide .splide__slide .content .name a{
     color: var(--white);
 }
-#about .splide__slide .content .add-cart a{
+#about .splide__slide .content .wrapper-detail a{
     background: linear-gradient(270deg, rgba(179, 137, 76, 1.0), rgba(227, 181, 118, 1.0));
+    border-radius: 99px;
+    padding: 10px 55px;
+    color: var(--white);
 }
 #about .splide__list .splide__slide{
     border: none;
@@ -2275,4 +2295,45 @@ footer .footer-bottom .footer-wp a {
 }
 .row{
     margin: 0;
+}
+
+.d-none-sm{
+    display: block;
+}
+@media screen and (max-width: 414.98px){
+    .d-none-sm{
+        display: none!important;
+    }
+    .banner-mb .carousel-item{
+        height: 500px;
+    }
+    #banner .carousel-inner.banner-mb .carousel-item img{
+        height: 500px!important;
+    }
+    .row>*{
+    padding: 0;
+    }
+}
+
+.splide__pagination{
+    bottom: -1.5em;
+}
+.group-user{
+    position: relative;
+}
+.group-item.wrapper-user.active{
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transform: translate(-50%,100%);
+    background: #fff;
+    width: 150px;
+    color: #000;
+    padding: 10px;
+    border-radius: 5px;
+}
+.group-item.wrapper-user.active a{
+    color: #000!important;
+    font-size: 1em;
 }

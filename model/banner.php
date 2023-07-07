@@ -9,7 +9,7 @@ class Banner extends Database{
      * Fuction insert new banner
      */
     function insert($heading, $description, $img_web, $img_mobile, $position, $href){
-        $sql = parent::$connection->prepare("INSERT INTO `banner`(`heading`, `description`, `img_web`, `img_mobile`, `position`, `href`) VALUES (?, ?, ?, ?, ? , ?)");
+        $sql = parent::$connection->prepare("INSERT INTO `banner`(`heading`, `description`, `img_web`, `img_mobile`, `position`, `href`, `create_at`) VALUES (?, ?, ?, ?, ?, ?, current_date)");
         $sql->bind_param('ssssis', $heading, $description, $img_web, $img_mobile, $position, $href);
         return $sql->execute();
     }

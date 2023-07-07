@@ -5,6 +5,7 @@ $totalPrice = 0;
 foreach($getCartByUserId as $item){
     $totalPrice += (($item['prices'] - (($item['prices'] * $item['sale']) / 100)) * $item['quantity']);
 }
+
 ?>
 
 <!-- Breadcrumb start-->
@@ -18,7 +19,7 @@ foreach($getCartByUserId as $item){
                         <li>
                             <a href="product.php"><span>Sản phẩm</span></a>
                         </li>
-                        <li>Giỏ hàng<span> (3)</span></li>
+                        <li>Giỏ hàng<span></span></li>
                     </ol>
                 </div>
             </div>
@@ -35,22 +36,22 @@ foreach($getCartByUserId as $item){
                     <div class="cart-wrapper">
                         <div class="modal-header d-none">
                             <h5 class="modal-title text-center" id="exampleModalLongTitle">
-                                Gio hang hien co ( <span>1</span> )san pham
+                                Giỏ hàng hiện có ( <span>1</span> ) sản phẩm
                             </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body p-0">
                             <table class="table" data-user="<?=$_SESSION['user']['temp']?>">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Thumbnail</th>
-                                        <th scope="col">Product</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Money</th>
+                                        <th scope="col">Hình ảnh</th>
+                                        <th scope="col">Thông tin</th>
+                                        <th scope="col">Giá</th>
+                                        <th scope="col">Số lượng</th>
+                                        <th scope="col">Tổng tiền</th>
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
@@ -65,12 +66,12 @@ foreach($getCartByUserId as $item){
                                         </td>
                                         <td>
                                             <p><b class="bold"><?=$item['name']?></b></p>
-                                            <p><span class="mb-shown">Phien ban:</span> <?=$item['weight']?></p>
+                                            <p><span class="mb-shown">Phiên bản:</span> <?=$item['weight']?></p>
                                             <p class="mb-shown">Thương hiệu Yến Vina</p>
                                         </td>
                                         <td>
-                                            <p><b class="bold"><?= number_format($item['prices'] - (($item['prices'] * $item['sale']) / 100)) ?></b></p>
-                                            <p class="mb-shown"><span class="price-old"><?= number_format($item['prices']) ?></span></p>
+                                            <p><b class="bold"><?= number_format($item['prices'] - (($item['prices'] * $item['sale']) / 100)) ?> VNĐ</b></p>
+                                            <p class="mb-shown"><span class="price-old"><?= number_format($item['prices']) ?> VNĐ</span></p>
                                             <p class="mb-shown"><span class="sale">-<?=$item['sale']?>%</span></p>
                                         </td>
                                         <td class="mb-shown">
@@ -80,7 +81,7 @@ foreach($getCartByUserId as $item){
                                             <input onclick="btnHighest(<?=$item['product_id']?>,<?=$item['quantity']?>)" type="button" class="highest_quan" value="+" />
                                         </div>
                                         </td>
-                                        <td class="mb-shown-sm"><b class="bold"><?=number_format(($item['prices'] - (($item['prices'] * $item['sale']) / 100)) * $item['quantity'])?></b></td>
+                                        <td class="mb-shown-sm"><b class="bold"><?=number_format(($item['prices'] - (($item['prices'] * $item['sale']) / 100)) * $item['quantity'])?> VNĐ</b></td>
 
                                         <td><a style="cursor: pointer;" onclick="removeProduct(<?=$item['product_id']?>)" class='remove'><i class='bx bx-x'></i></a></td>
                                     </tr>
@@ -90,14 +91,14 @@ foreach($getCartByUserId as $item){
                         </div>
                         <div class="modal-footer d-none"></div>
                     </div>
-                    <div class="cart-desc row gx-3 px-5">
+                    <div class="cart-desc row gx-3">
                         <div class="col-lg-6 col-12">
                             <div class="desc-left">
                                 <div class="title">
                                     <h3>Ghi chú đơn hàng</h3>
                                 </div>
                                 <form action="" method="post">
-                                    <textarea class="input-area" name="note" placeholder=""></textarea>
+                                    <textarea class="input-area" name="note" placeholder="Ghi chú..." style="border: 1px solid #cccccc;"></textarea>
                                 </form>
                             </div>
                         </div>
@@ -107,8 +108,9 @@ foreach($getCartByUserId as $item){
                                     <h3>Thông tin đơn hàng</h3>
                                 </div>
                                 <div class="content">
-                                    <div class="costs my-3"><span>Tổng tiền: </span><b><?=number_format($totalPrice)?></b>VND</div>
-                                    <p><span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium dignissimos asperiores mollitia animi illum. Nobis dolore, architecto ad odit consectetur, odio magni reiciendis repudiandae officiis error tenetur, tempora debitis illo.</span></p>
+                                    <div class="costs my-3"><span>Tổng tiền: </span><b><?=number_format($totalPrice)?></b> VNĐ</div>
+                                    <p><span>Phí vận chuyển sẽ được tính ở trang thanh toán.</span></p>
+                                    <p><span>Bạn cũng có thể nhập mã giảm giá ở trang thanh toán.</span></p>
                                     <div class="mb-3"><a class="btn-payment" href="./payment.php">Thanh toán</a></div>
                                     <a class="back-home" href="./index.php"><i class='bx bx-arrow-back'></i> Tiếp tục mua hàng</a>
                                 </div>

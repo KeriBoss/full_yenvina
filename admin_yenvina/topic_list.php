@@ -11,14 +11,14 @@ $getAllTopic = $topic->getAllTopic();
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Quản lý công ty</h1>
+        <h1 class="h3 mb-0 text-gray-800">Quản lý loại bài viết</h1>
         <a href="./add_topic.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>Thêm chủ đề mới</a>
     </div>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Công ty chính</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Các loại bài viết chính</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">

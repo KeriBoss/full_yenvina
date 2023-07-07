@@ -1,10 +1,16 @@
 //QUantity
 
-
+function formatVND(n, currency) {
+    let temp = n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    let str = temp.slice(0,(temp.length - 2));
+    return str + currency;
+}
+  
 // Create our number formatter.
 const formatter = new Intl.NumberFormat('vi-VN', {
     style: 'currency',
     currency: 'VND',
+    symbol: 'VNĐ'
 
     // These options are needed to round to whole numbers if that's what you want.
     //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
@@ -141,12 +147,12 @@ function showContentCart(reponse) {
                         </td>
                         <td class="mb-shown-sm">
                             <p><b class="bold">To yen tinh che Vip loai 1</b></p>
-                            <p>Phien ban: ${item.weight}</p>
+                            <p>Phiên bản: ${item.weight}</p>
                             <p>${item.type_name}</p>
                         </td>
                         <td>
-                            <p><b class="bold">${formatter.format(item.prices - ((item.prices * item.sale) / 100))}</b></p>
-                            <p><span class="price-old">${item.prices}d</span></p>
+                            <p><b class="bold">${formatVND((item.prices - ((item.prices * item.sale) / 100)), ' VNĐ')}</b></p>
+                            <p><span class="price-old">${item.prices} VNĐ</span></p>
                             <p><span class="sale">-${item.sale}%</span></p>
                         </td>
                         <td>
@@ -156,7 +162,7 @@ function showContentCart(reponse) {
                                 <input onclick="btnHighest(${item.product_id},${item.quantity})" type="button" class="highest_quan" value="+" />
                             </div>
                         </td>
-                        <td><b class="bold">${formatter.format((item.prices - ((item.prices * item.sale) / 100)) * item.quantity)}</b></td>
+                        <td><b class="bold">${formatVND(((item.prices - ((item.prices * item.sale) / 100)) * item.quantity), ' VNĐ')}</b></td>
                         ${modalContent.dataset.page == 'true' ? `<td><a style="cursor: pointer;" onclick='removeProduct(${item.product_id})' class='remove'><i class='bx bx-x'></i></a></td>` : ''}
                         </tr>
                     `;
@@ -170,7 +176,7 @@ function showContentCart(reponse) {
                     `;
     })
     modalFooter.innerHTML = `
-                    <div class="price-final float-left"><span>${formatter.format(totalPrice)}</span></div>
+                    <div class="price-final float-left"><span>${formatVND(totalPrice, ' VNĐ')}</span></div>
                     <div class="group">
                         <a href="./cart.php" class="btn-tablink">Giỏ hàng</a>
                         <a href="./payment.php" class="btn-tablink active">Thanh toán</a>
@@ -179,7 +185,7 @@ function showContentCart(reponse) {
     totalProductDiv.setAttribute("data-i", totalQuantity);
 
     if(divTotalPrice){
-        divTotalPrice.innerHTML = formatter.format(totalPrice);
+        divTotalPrice.innerHTML = formatVND(totalPrice, ' VNĐ');
     }
 }
 

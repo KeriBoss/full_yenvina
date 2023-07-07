@@ -72,5 +72,38 @@ let dateSale = setInterval(()=>{
 
 
 
-//Show hide filter on Product page
+//Show banner is mobile
+const bannerDK = document.querySelector('#banner .banner-deskop');
+const bannerMB = document.querySelector('#banner .banner-mb');
+
+if(bannerDK && bannerMB){
+    if(window.innerWidth < 414.98){
+        bannerDK.style.display = "none";
+        bannerMB.style.display = "block";
+        
+    }else{
+        bannerDK.style.display = "block";
+        bannerMB.style.display = "none";
+    }
+}
+
+
+//Show drop user login...
+const iconUser = document.getElementById('show-user');
+const dropUser = document.querySelector('.group-item.wrapper-user');
+const groupUser = document.querySelector('.group-user');
+
+if(iconUser && dropUser && groupUser){
+    if(window.innerWidth < 414.98){
+        if(dropUser.classList.contains('active')){
+            dropUser.style.display = "none";
+        }
+        iconUser.addEventListener('click', function(event){
+            event.preventDefault();
+
+            dropUser.classList.toggle('active')
+        })
+    }
+}
+
 

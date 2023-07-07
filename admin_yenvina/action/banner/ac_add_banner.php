@@ -37,12 +37,12 @@ if (isset($_POST["submit"])) {
 }
 
 // Check file size
-if ($_FILES["img_web"]["size"] > 500000) {
+if ($_FILES["img_web"]["size"] > 1000000) {
     echo "Sorry, your file is too large.";
     $uploadWebOk = 0;
 }
 // Check file size
-if ($_FILES["img_mobile"]["size"] > 500000) {
+if ($_FILES["img_mobile"]["size"] > 1000000) {
     echo "Sorry, your file is too large.";
     $uploadMobileOk = 0;
 }
@@ -102,6 +102,7 @@ if(isset($_POST['href'])){
 
 $banner = new Banner();
 try {
+    // var_dump($heading, $description, $img_web, $img_mobile, $position, $href);die();
     $insert = $banner->insert($heading, $description, $img_web, $img_mobile, $position, $href);
     header('location: ../../banner_list.php');
 } catch (Throwable $err) {

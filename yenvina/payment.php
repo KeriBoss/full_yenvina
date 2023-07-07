@@ -70,6 +70,11 @@ if(count($getUserById) > 0){
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/stylecustom.css" />
+    <style>
+        body{
+            background-color: #fff;
+        }
+    </style>
 </head>
 
 <body onload=onReady()>
@@ -117,9 +122,17 @@ if(count($getUserById) > 0){
                                     <div class="form-group">
                                         <input class="form-control w-100" type="text" name="fullname" placeholder="Họ và tên" value="<?php if(isset($_SESSION['user']['name'])){echo $_SESSION['user']['name'];} ?>" required>
                                     </div>
-                                    <div class="form-group d-flex gap-3">
-                                        <input class="form-control" type="email" name="email" placeholder="Email" value="<?php if(isset($_SESSION['user']['email'])){echo $_SESSION['user']['email'];} ?>" required>
-                                        <input class="form-control" type="text" name="phone" placeholder="Số điện thoại" value="<?php if(isset($_SESSION['user']['phone'])){echo $_SESSION['user']['phone'];} ?>" required>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12 col-12 pl-0">
+                                            <div class="form-group">
+                                                <input class="form-control" type="email" name="email" placeholder="Email" value="<?php if(isset($_SESSION['user']['email'])){echo $_SESSION['user']['email'];} ?>" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-12 pr-0">
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" name="phone" placeholder="Số điện thoại" value="<?php if(isset($_SESSION['user']['phone'])){echo $_SESSION['user']['phone'];} ?>" pattern="[0-9]{9,11}" required>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control w-100" type="text" name="address" placeholder="Địa chỉ" value="<?php if(isset($_SESSION['user']['address'])){echo $_SESSION['user']['address'];} ?>" required>
@@ -138,7 +151,7 @@ if(count($getUserById) > 0){
                         <div class="payment-right">
                             <?php foreach($getCartByUserId as $item){ ?>
                                 <div class="product-cart row gx-2 align-items-center">
-                                    <div class="col-lg-9 col-md-12 col-12">
+                                    <div class="col-lg-8 col-md-8 col-8">
                                         <div class="group-prod">
                                             <div class="left" --i="<?=$item['quantity']?>">
                                                 <img src="./img/product/<?= $item['thumbnail'] ?>" alt="">
@@ -149,16 +162,20 @@ if(count($getUserById) > 0){
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-12 col-12">
-                                        <div class="price"><?=number_format(($item['prices'] - (($item['prices'] * $item['sale']) / 100)) * $item['quantity'])?>VND</div>
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <div class="price"><?=number_format(($item['prices'] - (($item['prices'] * $item['sale']) / 100)) * $item['quantity'])?> VNĐ</div>
                                     </div>
                                 </div>
                             <?php } ?>
                             <div class="voucher">
                                 <form action="">
-                                    <div class="voucher-gr form-group">
-                                        <input class="form-control" type="text" name="voucher" placeholder="Ma giam gia">
-                                        <button class="form-control" type="submit">Su dung</button>
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-7 col-7">
+                                            <input class="form-control" type="text" name="voucher" placeholder="Mã giảm giá">
+                                        </div>
+                                        <div class="col-lg-4 col-md-5 col-5">
+                                            <button class="form-control" type="submit">Sử dụng</button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -166,20 +183,20 @@ if(count($getUserById) > 0){
                             <div class="transport">
                                 <div class="item mb-2">
                                     <span>Trạm tính</span>
-                                    <span><b>1,900,000d</b></span>
+                                    <span><b>0 VNĐ</b></span>
                                 </div>
                                 <div class="item">
                                     <span>Phí vận chuyển</span>
-                                    <span><b>0d</b></span>
+                                    <span><b>0 VNĐ</b></span>
                                 </div>
                             </div>
                             <div class="line-under-opa"></div>
                             <div class="all-price">
                                 <span><b>Tổng cộng</b></span>
-                                <span><b>VND <?=number_format ($totalPrice)?></b></span>
+                                <span><b> <?=number_format ($totalPrice)?> VNĐ</b></span>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center mb-4">
                             <div id="id_qrcode"></div>
                         </div>
                     </div>

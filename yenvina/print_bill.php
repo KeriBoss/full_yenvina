@@ -70,6 +70,11 @@ $getUserById = $user->getUserById($user_id);
     <link href="css/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/stylecustom.css" />
     <link rel="stylesheet" href="css/popup.css">
+    <style>
+        body{
+            background-color: #fff;
+        }
+    </style>
 </head>
 
 <body onload=onReady()>
@@ -84,14 +89,16 @@ $getUserById = $user->getUserById($user_id);
         <!-- Spinner End -->
 
         <?php if(isset($_SESSION['payment']['success']) && $_SESSION['payment']['success'] == 'true'){?>
-            <h3 style="    TEXT-ALIGN: center;color: green;background: #60a760;">CHÚC MỪNG BẠN ĐÃ ĐẶT HÀNG THÀNH CÔNG</h3>
-            <div class="w-100 text-center"><a href="./index.php"><i class='bx bx-left-arrow-alt'></i> Trang Chủ</a></div>
+            <div>
+                <h3 style="text-align: center;color: green;background: #60a760;padding: 10px;">CHÚC MỪNG BẠN ĐÃ ĐẶT HÀNG THÀNH CÔNG</h3>
+                <div class="w-100 text-center"><a href="./index.php"><i class='bx bx-left-arrow-alt'></i> Trang Chủ</a></div>
+            </div>
             <?php } ?>
         <!-- Content start-->
         <section class="payment">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 col-md-12 col-12">
+                    <div class="col-lg-6 col-md-12 col-12 mx-auto">
                         <div class="payment-left">
                             <div class="content">
                                 <div class="title">Yenvina - Super Yen</div>
@@ -102,12 +109,10 @@ $getUserById = $user->getUserById($user_id);
                                         </div>
                                         <div class="message">
                                             <div class="title">Đặt hàng thành công</div>
-                                            <div class="code">Mã đơn hàng #883127</div>
                                             <div class="gratitude">Cảm ơn bạn đã mua hàng</div>
                                         </div>
                                     </div>
-                                    <div class="mess-send">Chúng tôi đã gửi thông tin đơn hàng đến email
-                                        admion@gmail.com, vui lòng theo dõi đơn hàng.</div>
+                                    <div class="mess-send">Chúng tôi sẽ chủ động liên hệ đến bạn sớm nhất có thể để xác nhận đơn hàng, vui lòng theo dõi đơn hàng.</div>
                                 </div>
                             </div>
                             <div class="info-orders">
@@ -145,56 +150,7 @@ $getUserById = $user->getUserById($user_id);
                             <!-- <div class="footer"></div> -->
                         </div>
                     </div>
-                    <div class="col-lg-1"></div>
-                    <div class="col-lg-5 col-md-12 col-12">
-                        <div class="payment-right">
-                            <?php foreach($getCartByUserId as $item){ ?>
-                                <div class="product-cart row gx-2 align-items-center">
-                                    <div class="col-lg-9 col-md-12 col-12">
-                                        <div class="group-prod">
-                                            <div class="left" --i="<?=$item['quantity']?>">
-                                                <img src="./img/product/<?= $item['thumbnail'] ?>" alt="">
-                                            </div>
-                                            <div class="right">
-                                                <p><?=$item['name']?></p>
-                                                <span><?=$item['weight']?></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-12 col-12">
-                                        <div class="price"><?=number_format(($item['prices'] - (($item['prices'] * $item['sale']) / 100)) * $item['quantity'])?>VND</div>
-                                    </div>
-                                </div>
-                            <?php } ?>
-                            <div class="voucher">
-                                <form action="">
-                                    <div class="voucher-gr form-group">
-                                        <input class="form-control" type="text" name="voucher" placeholder="Ma giam gia">
-                                        <button class="form-control" type="submit">Su dung</button>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="line-under-opa"></div>
-                            <div class="transport">
-                                <div class="item mb-2">
-                                    <span>Trạm tính</span>
-                                    <span><b>0.00d</b></span>
-                                </div>
-                                <div class="item">
-                                    <span>Phí vận chuyển</span>
-                                    <span><b>0d</b></span>
-                                </div>
-                            </div>
-                            <div class="line-under-opa"></div>
-                            <div class="all-price">
-                                <span><b>Tổng cộng</b></span>
-                                <span><b>VND <?=number_format ($totalPrice)?></b></span>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center">
-                            <div id="id_qrcode"></div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </section>

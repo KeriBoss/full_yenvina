@@ -20,11 +20,11 @@ $getSocialHomePage = $social->getSocialHomePage();
                             </p>
                             <p class="f-item phone">
                                 <i class="bx bx-phone"></i>
-                                <span>0213120390123</span>
+                                <span>0123456789</span>
                             </p>
                             <p class="f-item email">
                                 <i class="bx bx-envelope"></i>
-                                <span>fdsaf@gmail.com</span>
+                                <span>yenvina@gmail.com</span>
                             </p>
                         </div>
                         <div class="col-lg-4 col-md-6 col-12">
@@ -35,13 +35,8 @@ $getSocialHomePage = $social->getSocialHomePage();
                                         <ul>
                                             <li class="item"><a href="./product.php">Tìm kiếm</a></li>
                                             <li class="item"><a href="./term_service.php">Giới thiệu</a></li>
-                                            <li class="item"><a href="./term_service.php">Chính sách đổi trả</a></li>
-                                            <li class="item"><a href="./term_service.php">Chính sách bảo mật</a></li>
                                             <li class="item"><a href="./term_service.php">Điều khoản dịch vụ</a></li>
                                             <li class="item"><a href="./term_service.php">Liên hệ</a></li>
-                                            <li class="item">
-                                                <a href="./term_service.php">Chính sách vận chuyển</a>
-                                            </li>
                                             <li class="item">
                                                 <a href="./term_service.php">Chính sách thanh toán</a>
                                             </li>
@@ -77,43 +72,6 @@ $getSocialHomePage = $social->getSocialHomePage();
                 <div class="footer-center">
                     <div class="row gx-5">
                         <div class="col-lg-6 col-md-6 col-12">
-                            <h3 class="footer-title">Phương thức thanh toán</h3>
-                            <div class="footer-content payments">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <img src="https://theme.hstatic.net/200000404397/1000922692/14/img_payment_item_1.png?v=556"
-                                                loading="lazy" alt="MasterCard" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="https://theme.hstatic.net/200000404397/1000922692/14/img_payment_item_2.png?v=556"
-                                                loading="lazy" alt="Visa" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="https://theme.hstatic.net/200000404397/1000922692/14/img_payment_item_3.png?v=556"
-                                                loading="lazy" alt="JCB" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="https://theme.hstatic.net/200000404397/1000922692/14/img_payment_item_4.png?v=556"
-                                                loading="lazy" alt="Delivary" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="https://theme.hstatic.net/200000404397/1000922692/14/img_payment_item_5.png?v=556"
-                                                loading="lazy" alt="napas" />
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12">
                             <h3 class="footer-title">Phương thức vận chuyển</h3>
                             <div class="footer-content transform">
                                 <ul>
@@ -140,7 +98,7 @@ $getSocialHomePage = $social->getSocialHomePage();
                     <div class="footer-wp">
                         <p>
                             Copyright &copy 2023
-                            <a href="">Yenvina Yến thượng đỉnh</a> .
+                            <a href="">Yến rồng tiên</a> .
                             <a href="" target="_blank">Power by Keri</a>
                         </p>
                     </div>
@@ -184,7 +142,7 @@ $getSocialHomePage = $social->getSocialHomePage();
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-        <a target="_blank" href="https://zalo.me/035.989.3447" class="btn btn-lg-square zalo_me">
+        <a target="_blank" href="https://zalo.me" class="btn btn-lg-square zalo_me">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/2048px-Icon_of_Zalo.svg.png" alt="Zalo" class="img-fluid">
         </a>
         <!-- <div class="zalo-chat-widget" data-oaid="1171762892749775936" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="1" data-width="300" data-height="500"></div>

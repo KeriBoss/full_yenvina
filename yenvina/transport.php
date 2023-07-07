@@ -59,6 +59,11 @@ foreach($getCartByUserId as $item){
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/stylecustom.css" />
+    <style>
+        body{
+            background-color: #fff;
+        }
+    </style>
 </head>
 
 <body onload=onReady()>
@@ -101,14 +106,14 @@ foreach($getCartByUserId as $item){
                                             <input type="radio" name="transport" value="Phí ship dựa trên kilomet thực nhận" id="ship1" hidden checked>
                                             <label for="ship1">
                                                 Phí ship dựa trên kilomet thực nhận
-                                                <span>0d</span>
+                                                <span>0 VNĐ</span>
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <input type="radio" name="transport" id="ship2" value="Phí ship dựa trên quãng đường đi được" hidden>
                                             <label for="ship2">
                                                 Phí ship dựa trên kilomet thực nhận
-                                                <span>0d</span>
+                                                <span>0 VNĐ</span>
                                             </label>
                                         </div>
                                     </div>
@@ -118,7 +123,7 @@ foreach($getCartByUserId as $item){
                                             <input type="radio" name="payment" id="payment1" value="Thanh toán khi nhận hàng" hidden checked>
                                             <label for="payment1">
                                                 Thanh toán khi nhận hàng
-                                                <span>0d</span>
+                                                <span>0 VNĐ</span>
                                             </label>
                                         </div>
                                         <!-- <div class="form-group">
@@ -143,7 +148,7 @@ foreach($getCartByUserId as $item){
                         <div class="payment-right">
                             <?php foreach($getCartByUserId as $item){ ?>
                                 <div class="product-cart row gx-2 align-items-center">
-                                    <div class="col-lg-9 col-md-12 col-12">
+                                    <div class="col-lg-8 col-md-12 col-12">
                                         <div class="group-prod">
                                             <div class="left" --i="<?=$item['quantity']?>">
                                                 <img src="./img/product/<?= $item['thumbnail'] ?>" alt="">
@@ -154,16 +159,16 @@ foreach($getCartByUserId as $item){
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-12 col-12">
-                                        <div class="price"><?=number_format(($item['prices'] - (($item['prices'] * $item['sale']) / 100)) * $item['quantity'])?>VND</div>
+                                    <div class="col-lg-4 col-md-12 col-12">
+                                        <div class="price"><?=number_format(($item['prices'] - (($item['prices'] * $item['sale']) / 100)) * $item['quantity'])?> VNĐ</div>
                                     </div>
                                 </div>
                             <?php } ?>
                             <div class="voucher">
                                 <form action="">
                                     <div class="voucher-gr form-group">
-                                        <input class="form-control" type="text" name="voucher" placeholder="Ma giam gia">
-                                        <button class="form-control" type="submit">Su dung</button>
+                                        <input class="form-control" type="text" name="voucher" placeholder="Mã giảm giá">
+                                        <button class="form-control" type="submit">Sử dụng</button>
                                     </div>
                                 </form>
                             </div>
@@ -171,20 +176,20 @@ foreach($getCartByUserId as $item){
                             <div class="transport">
                                 <div class="item mb-2">
                                     <span>Trạm tính</span>
-                                    <span><b>1,900,000d</b></span>
+                                    <span><b>0 VNĐ</b></span>
                                 </div>
                                 <div class="item">
                                     <span>Phí vận chuyển</span>
-                                    <span><b>0d</b></span>
+                                    <span><b>0 VNĐ</b></span>
                                 </div>
                             </div>
                             <div class="line-under-opa"></div>
                             <div class="all-price">
                                 <span><b>Tổng cộng</b></span>
-                                <span><b>VND <?=number_format ($totalPrice)?></b></span>
+                                <span><b><?=number_format ($totalPrice)?> VNĐ</b></span>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center mb-4">
                             <div id="id_qrcode2"></div>
                         </div>
                     </div>

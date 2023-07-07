@@ -64,7 +64,7 @@
 
 <script type="text/javascript">
     function CheckForm(){
-            r = confirm("Ban co muon xoa khong?");
+            r = confirm("Bạn có chắc chắn muốn xóa mục này?");
             if(r == false) return false;
             else return true;                       
     }

@@ -47,7 +47,7 @@ $getAllBanner = $banner->getAllBanner();
                                         <tr>
                                             <td><?= $count++; ?></td>
                                             <td>
-                                                <img height="150" width="auto" src="<?=$urlImg?>/img/banner/<?=$item['img_web']?>" style="object-fit: cover;" alt="Img banner">
+                                                <img height="auto" width="300px" src="<?=$urlImg?>/img/banner/<?=$item['img_web']?>" style="object-fit: cover;" alt="Img banner">
                                             </td>
                                             <td>
                                                 <img height="150" width="auto" src="<?=$urlImg?>/img/banner/<?=$item['img_mobile']?>" style="object-fit: cover;" alt="Img banner">

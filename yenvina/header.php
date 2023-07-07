@@ -117,8 +117,8 @@ $product = new Product();
                     <div class="col-lg-2 col-md-3">
                         <div class="group-user">
                             <div class="search-mobile"><i class="bx bx-search"></i></div>
-                            <div class="user"><a href="./login.php" class="cl-white"><i class="bx bx-user"></i></a></div>
-                            <div class="group-item">
+                            <div class="user"><a id="show-user" href="#" class="cl-white"><i class="bx bx-user"></i></a></div>
+                            <div class="group-item wrapper-user">
                                 <div class="sign-in">
                                     <?php if(isset($_SESSION['user']['name'])){ ?>
                                         <a href="#"><?=$_SESSION['user']['name']?></a>

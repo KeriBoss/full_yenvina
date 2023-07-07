@@ -22,7 +22,7 @@ $getArticleHomePage = $article->getArticleHomePage();
         <!-- Banner Carousel Start -->
         <section id="banner" class="container-fluid p-0 mb-5 fadeIn">
             <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
+                <div class="carousel-inner banner-deskop">
                     <?php
                         $countBanner = 1;
                         foreach($getAllBanner as $item){
@@ -35,6 +35,25 @@ $getArticleHomePage = $article->getArticleHomePage();
                             else{ ?>
                                 <div class="carousel-item">
                                     <img class="w-100" src="img/banner/<?=$item['img_web']?>" alt="Image" />
+                                </div>
+                            <?php }
+                            $countBanner++;
+                        }
+                    ?>
+                </div>
+                <div class="carousel-inner banner-mb">
+                    <?php
+                        $countBanner = 1;
+                        foreach($getAllBanner as $item){
+                            if($countBanner == 1){
+                                ?>
+                                <div class="carousel-item active">
+                                    <img class="w-100" src="img/banner/<?=$item['img_mobile']?>" alt="Image" />
+                                </div>
+                            <?php }
+                            else{ ?>
+                                <div class="carousel-item">
+                                    <img class="w-100" src="img/banner/<?=$item['img_mobile']?>" alt="Image" />
                                 </div>
                             <?php }
                             $countBanner++;
@@ -83,13 +102,13 @@ $getArticleHomePage = $article->getArticleHomePage();
         <section id="flash-sale" class="container">
             <div class="flash-header">
                 <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-12 col-12 d-flex">
+                    <div class="col-lg-6 col-md-7 col-7 d-flex">
                         <div class="title">
                             <span>Flash </span>
                             <i class="bx bxs-zap"></i>
                             <span>sale</span>
                         </div>
-                        <div class="time-delay" data-time="<?=$TIME_DELAY?>">
+                        <div class="time-delay d-none-sm" data-time="<?=$TIME_DELAY?>">
                             <div class="hour"></div>
                             <span> : </span>
                             <div class="minute"></div>
@@ -97,7 +116,7 @@ $getArticleHomePage = $article->getArticleHomePage();
                             <div class="second"></div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-12 col-12">
+                    <div class="col-lg-6 col-md-5 col-5">
                         <div class="show-all">
                             <a href="./product.php">Xem tất cả</a>
                         </div>
@@ -136,7 +155,7 @@ $getArticleHomePage = $article->getArticleHomePage();
                                         }
                                         ?>
                                     </div>
-                                    <div class="price">2119900 <span>vnd</span></div>
+                                    <div class="price"><?=number_format($item['prices'])?> <span>VNĐ</span></div>
                                 </div>
                             </li>
                             <?php } ?>
@@ -203,9 +222,9 @@ $getArticleHomePage = $article->getArticleHomePage();
                                     ?>
                                     </div>
                                     <div class="box-prices">
-                                        <span class="current-price"><?= number_format($data['prices'] - (($data['prices'] * $data['sale']) / 100)) ?>vnd</span>
+                                        <span class="current-price"><?= number_format($data['prices'] - (($data['prices'] * $data['sale']) / 100)) ?> VNĐ</span>
                                         <span class="del-price <?php if($data['sale'] == 0){echo "d-none";} ?>">
-                                            <del> <?= number_format($data['prices']) ?> vnd</del>
+                                            <del> <?= number_format($data['prices']) ?>  VNĐ</del>
                                         </span>
                                         
                                     </div>
@@ -228,7 +247,7 @@ $getArticleHomePage = $article->getArticleHomePage();
         <!-- Partner start-->
         <section class="partner p-0">
             <div class="container">
-                <img src="./img/carousel-yenvina-1.png" alt="Partner">
+                <img src="./img/carousel-yenvina-1.png" class="img-fluid" alt="Partner">
             </div>
         </section>
         <!-- Partner end-->
@@ -280,9 +299,9 @@ $getArticleHomePage = $article->getArticleHomePage();
                                     ?>
                                     </div>
                                     <div class="box-prices">
-                                        <span class="current-price"><?= number_format($data['prices'] - (($data['prices'] * $data['sale']) / 100)) ?>vnd</span>
+                                        <span class="current-price"><?= number_format($data['prices'] - (($data['prices'] * $data['sale']) / 100)) ?> VNĐ</span>
                                         <span class="del-price <?php if($data['sale'] == 0){echo "d-none";} ?>">
-                                            <del> <?= number_format($data['prices']) ?> vnd</del>
+                                            <del> <?= number_format($data['prices']) ?> VNĐ</del>
                                         </span>
                                         
                                     </div>

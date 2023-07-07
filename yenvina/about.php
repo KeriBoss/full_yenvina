@@ -1,3 +1,21 @@
+<?php
+session_start();
+require_once  "../model/config.php";
+require_once  "../model/database.php";
+require_once  "../model/product.php";
+require_once  "../model/type_product.php";
+
+$product = new Product();
+
+//Create new object Product
+$quantityProductShow = 10;
+$numSale = 7;//Get quantity products on highest sale
+
+$getLatestProduct = $product->getLatestProduct($quantityProductShow);
+$getLatestProductSale = $product->getLatestProductSale($numSale);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,7 +76,7 @@
                         <a href="./index.php"> <img src="./img/logo.png" alt="Yenvina" class="img-fluid"></a>
                     </div>
                     <div class="topic-sentence">
-                        Yenvina Thượng đỉnh yến <br>
+                        Yến Rồng Tiên <br>
                         Trao niềm vui sống
                     </div>
                     <div class="end-header"></div>
@@ -104,7 +122,7 @@
                                 <li class="splide__slide">
                                     <div class="img">
                                         <div class="circle"></div>
-                                        <a href="./article.html">
+                                        <a href="./blog.php">
                                             <img src="https://w.ladicdn.com/s700x600/5cd0fc8bc2076e52d0838a2a/1-20201222142743.jpg"
                                                 loading="lazy" alt="Article" />
                                         </a>
@@ -113,7 +131,7 @@
                                 <li class="splide__slide">
                                     <div class="img">
                                         <div class="circle"></div>
-                                        <a href="./article.html">
+                                        <a href="./blog.php">
                                             <img src="https://w.ladicdn.com/s700x600/5cd0fc8bc2076e52d0838a2a/1-20201222143918.jpg"
                                                 loading="lazy" alt="Article" />
                                         </a>
@@ -122,7 +140,7 @@
                                 <li class="splide__slide">
                                     <div class="img">
                                         <div class="circle"></div>
-                                        <a href="./article.html">
+                                        <a href="./blog.php">
                                             <img src="https://w.ladicdn.com/s700x600/5cd0fc8bc2076e52d0838a2a/1-20201222142959.jpg"
                                                 loading="lazy" alt="Article" />
                                         </a>
@@ -131,7 +149,7 @@
                                 <li class="splide__slide">
                                     <div class="img">
                                         <div class="circle"></div>
-                                        <a href="./article.html">
+                                        <a href="./blog.php">
                                             <img src="https://w.ladicdn.com/s700x600/5cd0fc8bc2076e52d0838a2a/1-20201222142743.jpg"
                                                 loading="lazy" alt="Article" />
                                         </a>
@@ -140,7 +158,7 @@
                                 <li class="splide__slide">
                                     <div class="img">
                                         <div class="circle"></div>
-                                        <a href="./article.html">
+                                        <a href="./blog.php">
                                             <img src="https://w.ladicdn.com/s700x600/5cd0fc8bc2076e52d0838a2a/1-20201222143918.jpg"
                                                 loading="lazy" alt="Article" />
                                         </a>
@@ -149,7 +167,7 @@
                                 <li class="splide__slide">
                                     <div class="img">
                                         <div class="circle"></div>
-                                        <a href="./article.html">
+                                        <a href="./blog.php">
                                             <img src="https://w.ladicdn.com/s700x600/5cd0fc8bc2076e52d0838a2a/1-20201222142959.jpg"
                                                 loading="lazy" alt="Article" />
                                         </a>
@@ -158,7 +176,7 @@
                             </ul>
                         </div>
                     </div>
-                    <p class="desc-bot text-center my-3">Thành lập từ năm 2015, CiCi Thượng Đỉnh Yến đến nay đã chiếm
+                    <p class="desc-bot text-center my-5">Thành lập từ năm 2015, CiCi Thượng Đỉnh Yến đến nay đã chiếm
                         trọn niềm tin của khách hàng bởi chất lượng - tinh tế - hợp khẩu vị trong từng dòng sản phẩm về
                         Yến sào. Cici Thượng Đỉnh Yến luôn mang đến cho quý khách hàng những sản phẩm chất lượng nhất -
                         tốt nhất - tinh hoa nhất với đội ngũ chuyên gia nghiên cứu dinh dưỡng hàng đầu Việt Nam và luôn
@@ -170,78 +188,26 @@
                         <div class="product-splide splide" aria-label="Beautiful Images" style="padding: 0;">
                             <div class="splide__track">
                                 <ul class="splide__list">
+                                <?php foreach($getLatestProduct as $data){?>
                                     <li class="splide__slide">
                                         <div class="img">
                                             <div class="circle"></div>
-                                            <a href="./detail.html">
-                                                <img src="https://w.ladicdn.com/s750x950/5cd0fc8bc2076e52d0838a2a/sp-20201222162211.jpg"
-                                                    alt="" />
+                                            <a href="./detail.php?id=<?=$data['id']?>">
+                                                <img src="img/product/<?=$data['thumbnail']?>" loading="lazy"
+                                                alt="<?=$data['thumbnail']?>" />
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <div class="name"><a href="./detail.html">Set 24 vip vy yen bao</a></div>
+                                        <div class="name"><a href="./detail.php?id=<?=$data['id']?>"><?=$data['product_name']?></a></div>
                                             <div class="d-flex justify-content-center align-items-center">
-                                                <div class="add-cart" style="cursor: pointer;">
-                                                    <a data-toggle="modal" data-target="#popupAddCart"><span>Xem chi
+                                                <div class="wrapper-detail mt-3" >
+                                                    <a href="./detail.php?id=<?=$data['id']?>"><span>Xem chi
                                                             tiết</span></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="splide__slide">
-                                        <div class="img">
-                                            <div class="circle"></div>
-                                            <a href="./detail.html">
-                                                <img src="https://w.ladicdn.com/s750x1000/5cd0fc8bc2076e52d0838a2a/sp-20201222162113.jpg"
-                                                    alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="content">
-                                            <div class="name"><a href="./detail.html">Set 24 vip vy yen bao</a></div>
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <div class="add-cart" style="cursor: pointer;">
-                                                    <a data-toggle="modal" data-target="#popupAddCart"><span>Xem chi
-                                                            tiết</span></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="splide__slide">
-                                        <div class="img">
-                                            <div class="circle"></div>
-                                            <a href="./detail.html">
-                                                <img src="https://w.ladicdn.com/s750x950/5cd0fc8bc2076e52d0838a2a/sp-20201222162211.jpg"
-                                                    alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="content">
-                                            <div class="name"><a href="./detail.html">Set 24 vip vy yen bao</a></div>
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <div class="add-cart" style="cursor: pointer;">
-                                                    <a data-toggle="modal" data-target="#popupAddCart"><span>Xem chi
-                                                            tiết</span></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="splide__slide">
-                                        <div class="img">
-                                            <div class="circle"></div>
-                                            <a href="./detail.html">
-                                                <img src="https://w.ladicdn.com/s750x1000/5cd0fc8bc2076e52d0838a2a/sp-20201222162113.jpg"
-                                                    alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="content">
-                                            <div class="name"><a href="./detail.html">Set 24 vip vy yen bao</a></div>
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <div class="add-cart" style="cursor: pointer;">
-                                                    <a data-toggle="modal" data-target="#popupAddCart"><span>Xem chi
-                                                            tiết</span></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                <?php } ?>
                                 </ul>
                             </div>
                         </div>
@@ -265,31 +231,31 @@
                                 <ul class="splide__list" style="text-align: center;">
                                     <li class="splide__slide">
                                         <div class="splide__slide__container">
-                                            <img src="https://w.ladicdn.com/s500x500/5cd0fc8bc2076e52d0838a2a/1-20201225031834.jpg">
+                                            <img src="./img/user/person_1.jpg">
                                         </div>
-                                        <p class="mt-3"><b>Nguyen Van A</b></p>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia tempore incidunt unde voluptate sapiente animi dolore eligendi distinctio, dignissimos cupiditate</p>
+                                        <p class="mt-3"><b>Bà Nguyễn Kim Xuân</b></p>
+                                        <p>Có một phần trong nhận xét của bạn thực sự thu hút sự chú ý của tôi. Bạn có phiền nếu chúng tôi chia sẻ câu chuyện của bạn với nhóm của chúng tôi và có thể trên các kênh bên ngoài như trang web hoặc hồ sơ mạng xã hội của chúng tôi không?</p>
                                     </li>
                                     <li class="splide__slide">
                                         <div class="splide__slide__container">
-                                            <img src="https://w.ladicdn.com/s500x500/5cd0fc8bc2076e52d0838a2a/1-20201225031834.jpg">
+                                            <img src="./img/user/person_2.jpg">
                                         </div>
-                                        <p class="mt-3"><b>Nguyen Van A</b></p>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia tempore incidunt unde voluptate sapiente animi dolore eligendi distinctio, dignissimos cupiditate</p>
+                                        <p class="mt-3"><b>Ông Tạ Điền Châu</b></p>
+                                        <p>Tôi thực sự tự hào rằng chúng tôi đã có thể đáp ứng kỳ vọng cao của bạn! Cảm ơn bạn đã dành thời gian để chia sẻ ý kiến ​​của mình với nhóm dịch vụ khách hàng của chúng tôi</p>
                                     </li>
                                     <li class="splide__slide">
                                         <div class="splide__slide__container">
-                                            <img src="https://w.ladicdn.com/s500x500/5cd0fc8bc2076e52d0838a2a/1-20201225031834.jpg">
+                                            <img src="./img/user/person_3.jpg">
                                         </div>
                                         <p class="mt-3"><b>Nguyen Van A</b></p>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia tempore incidunt unde voluptate sapiente animi dolore eligendi distinctio, dignissimos cupiditate</p>
+                                        <p>Có một phần trong nhận xét của bạn thực sự thu hút sự chú ý của tôi. Bạn có phiền nếu chúng tôi chia sẻ câu chuyện của bạn với nhóm của chúng tôi và có thể trên các kênh bên ngoài như trang web hoặc hồ sơ mạng xã hội của chúng tôi không?</p>
                                     </li>
                                     <li class="splide__slide">
                                         <div class="splide__slide__container">
-                                            <img src="https://w.ladicdn.com/s500x500/5cd0fc8bc2076e52d0838a2a/1-20201225031834.jpg">
+                                            <img src="./img/user/person_4.jpg">
                                         </div>
                                         <p class="mt-3"><b>Nguyen Van A</b></p>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia tempore incidunt unde voluptate sapiente animi dolore eligendi distinctio, dignissimos cupiditate</p>
+                                        <p>Việc bạn và gia đình của bạn [ở lại/dùng bữa] với chúng tôi là niềm vinh hạnh cho [công ty]. Chúng tôi thực sự đánh giá cao việc bạn rất cởi mở với chúng tôi và dành thời gian để chia sẻ phản hồi của mình.</p>
                                     </li>
                                 </ul>
                             </div>

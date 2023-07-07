@@ -88,10 +88,10 @@ $total_pages = ceil (count($getAllProductHomepage) / $perPage);
                     <div class="col-12">
                         <ol class="breadcrumb-shop p-0">
                             <li>
-                                <a href="/index.html"><span>Trang chủ</span></a>
+                                <a href="index.php"><span>Trang chủ</span></a>
                             </li>
                             <li>
-                                <a href="/index.html"><span>Sản phẩm</span></a>
+                                <a href="product.php"><span>Sản phẩm</span></a>
                             </li>
                             <!-- <li><span>Yến sào hoa quả sơn</span></li> -->
                         </ol>
@@ -120,7 +120,6 @@ $total_pages = ceil (count($getAllProductHomepage) / $perPage);
                 <?php } ?>
                 <div class="box filter d-flex flex-wrap justify-content-between align-items-center">
                     <h3 class="title mb-0">Tổ yến</h3>
-                    <div class="btn-filter"><i class='bx bx-filter-alt'></i> Bộ lọc</div>
                 </div>
                 <div class="box arrange">
                     <div class="title">Arrange for:</div>
@@ -172,16 +171,16 @@ $total_pages = ceil (count($getAllProductHomepage) / $perPage);
                                         ?>
                                         </div>
                                         <div class="box-prices">
-                                            <span class="current-price"><?= number_format($item['prices'] - (($item['prices'] * $item['sale']) / 100)) ?>vnd</span>
+                                            <span class="current-price"><?= number_format($item['prices'] - (($item['prices'] * $item['sale']) / 100)) ?> VNĐ</span>
                                             <span class="del-price <?php if($item['sale'] == 0){echo "d-none";} ?>">
-                                                <del> <?= number_format($item['prices']) ?> vnd</del>
+                                                <del> <?= number_format($item['prices']) ?> VNĐ</del>
                                             </span>
                                             
                                         </div>
                                         <div class="d-flex justify-content-center align-items-center">
                                             <div class="add-cart" style="cursor: pointer;">
-                                            <a data-toggle="modal" data-target="#popupAddCart" data-parent="<?=$item['id']?>" data-user="<?=$_SESSION['user']['temp']?>"><span>Thêm vào giỏ</span></a>
-                                                <div class="icon-cart"><i class='bx bx-cart'></i></div>
+                                                <a data-toggle="modal" data-target="#popupAddCart" data-parent="<?=$item['id']?>" data-user="<?=$_SESSION['user']['temp']?>"><span>Thêm Vào Giỏ</span></a>
+                                                <div class="icon-cart" data-toggle="modal" data-target="#popupAddCart" data-parent="<?=$item['id']?>" data-user="<?=$_SESSION['user']['temp']?>"><i class='bx bx-cart'></i></div>
                                             </div>
                                         </div>
                                     </div>
